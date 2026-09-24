@@ -1,0 +1,9 @@
+# Never bake secrets or local junk into the image.
+.env
+.venv
+__pycache__/
+*.pyc
+data/          # local SQLite db; the container gets its own (see DEPLOY.md on persistence)
+.git/
+.gitignore
+*.md
