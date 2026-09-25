@@ -1,0 +1,13 @@
+[project]
+name = "sectors-telegram"
+version = "0.1.0"
+description = "Sectors IDX/SGX Telegram bot - checkpoint step 3 (first data)"
+readme = "README.md"
+requires-python = ">=3.14"
+dependencies = [
+    "httpx2>=2.13.0",
+    "pydantic-settings>=2.15.0",
+    "python-dotenv>=1.2.3",
+    "python-telegram-bot[job-queue]>=22.8",
+    "tzdata>=2026.4",
+]

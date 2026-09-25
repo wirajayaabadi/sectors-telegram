@@ -9,6 +9,8 @@ wheels/
 # Virtual environments
 .venv
 
+agentic_patterns/
+
 # db
 data/
 

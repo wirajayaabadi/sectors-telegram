@@ -1,0 +1,92 @@
+Research on i want to get research on top indonesian banks:
+Top companies: ['BBCA', 'BBRI', 'BMRI', 'BBNI', 'BNLI']
+
+
+Company: BBCA
+**BBCA � PT Bank Central Asia Tbk.**
+
+- **Exchange:** IDX, Main Board  
+- **Sector:** Financials � Banks  
+- **Market cap:** IDR 768.9 trillion (#1)  
+- **Employees:** 27,937  
+- **Latest close:** IDR 6,300 (23 Sep 2026)  
+- **52-week range:** IDR 4,820�8,750  
+- **Website:** www.bca.co.id  
+- **Affiliates:** Djarum, Hartono
+
+Research Date: 2026-09-24T19:38:03.884659
+
+
+Company: BBRI
+## BBRI � PT Bank Rakyat Indonesia (Persero) Tbk
+
+- **Exchange:** Indonesia Stock Exchange, Main Board  
+- **Sector/Industry:** Financials / Banks  
+- **Market cap:** IDR 478.6 trillion  
+- **Last price:** IDR 3,190 (23 Sep 2026)  
+- **Listing date:** 10 Nov 2003  
+- **Employees:** 27,937  
+- **Website:** www.bri.co.id  
+- **YTD range:** IDR 2,540�3,980  
+- **ESG score:** 18.47  
+- **Indices:** LQ45, IDX30, FTSE, SRI-KEHATI, IDX BUMN20, among others  
+- **Key tags:** Dividend yield above 5%, top-30 year-on-year earnings growth, invested by Danantara
+
+Research Date: 2026-09-24T19:38:09.713118
+
+
+Company: BMRI
+## BMRI � PT Bank Mandiri (Persero) Tbk
+
+- **Exchange:** IDX � Main Board  
+- **Sector/Industry:** Financials / Banks  
+- **Market cap:** ~IDR 387.2 trillion  
+- **Last close:** IDR 4,190 (23 Sep 2026)  
+- **Employees:** ~38,751  
+- **Listing date:** 14 Jul 2003  
+- **52-week range:** IDR 3,650�5,375  
+- **Website:** www.bankmandiri.co.id  
+- **ESG score:** 9.47  
+- **Key indices:** LQ45, IDX30, IDXHIDIV20, IDXESGL, IDXBUMN20  
+- **Notable tags:** >5% dividend yield, invested by Danantara, insider buying, top-30 year-on-year earnings growth
+
+Research Date: 2026-09-24T19:38:13.886474
+
+
+Company: BBNI
+## BBNI � PT Bank Negara Indonesia (Persero) Tbk
+
+- **Exchange:** IDX (Indonesia)
+- **Sector/Industry:** Financials � Banks
+- **Listing board:** Main Board
+- **Listing date:** 25 Nov 1996
+- **Market cap:** Rp132.6 trillion
+- **Last close:** Rp3,590 (23 Sep 2026)
+- **52-week range:** Rp2,990�Rp4,730
+- **Employees:** 25,266
+- **Headquarters:** Jakarta
+- **Website:** www.bni.co.id
+- **ESG score:** 21.46
+- **Key indices:** LQ45, IDX30, KOMPAS100, SRI-KEHATI, IDX ESG Leaders
+- **Notable tags:** Invested by Danantara; top-30 year-on-year earnings growth; top-90-day transaction value.
+
+Research Date: 2026-09-24T19:38:19.144286
+
+
+Company: BNLI
+## BNLI � Bank Permata Tbk
+
+- **Exchange:** Indonesia Stock Exchange (IDX)
+- **Sector/Industry:** Financials � Banks
+- **Market cap:** IDR 74.5 trillion
+- **Listing board:** Main Board
+- **Listed:** January 15, 1990
+- **Employees:** 6,440
+- **Last price:** IDR 2,080 (September 23, 2026)
+- **Website:** www.permatabank.co.id
+- **Headquarters:** Jakarta
+- **ESG score:** 28.6
+
+Research Date: 2026-09-24T19:38:24.752707
+
+
