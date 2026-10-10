@@ -1,8 +1,7 @@
 """The Q&A specialist agents that triage routes between via handoff.
 
-- market_agent:      index / market-wide questions (IDX or SGX)
+- market_agent:      index / market-wide questions
 - idx_company_agent: one IDX company (report, financials, growth, peers)
-- sgx_company_agent: one SGX company (report, financials, growth)
 """
 
 from __future__ import annotations
@@ -25,7 +24,7 @@ market_agent = Agent(
     name="Market Agent",
     handoff_description="Market-wide questions: indices, market cap, movers, foreign flow, news.",
     model=SMALL,
-    instructions=f"{BASE_RULES}\nAnswer market-wide questions about IDX and SGX indices and flows. {_TG_FORMAT}",
+    instructions=f"{BASE_RULES}\nAnswer market-wide questions about IDX indices and flows. {_TG_FORMAT}",
     tools=[
         t.get_index,
         t.get_idx_total,
@@ -42,17 +41,7 @@ idx_company_agent = Agent(
     name="IDX Company Agent",
     handoff_description="Questions about ONE specific IDX-listed company (financials, dividend, growth, peers).",
     model=SMALL,
-    instructions=f"{BASE_RULES}\nAnswer about a single IDX company. Use get_company_report (market='idx'); "
-    f"for growth use the financials section then `change`. {_TG_FORMAT}",
-    tools=[t.get_company_report, t.get_daily, t.get_filings, t.change],
-    model_settings=_SETTINGS,
-)
-
-sgx_company_agent = Agent(
-    name="SGX Company Agent",
-    handoff_description="Questions about ONE specific SGX-listed company (financials, dividend, growth).",
-    model=SMALL,
-    instructions=f"{BASE_RULES}\nAnswer about a single SGX company. Use get_company_report (market='sgx'); "
+    instructions=f"{BASE_RULES}\nAnswer about a single IDX company. Use get_company_report; "
     f"for growth use the financials section then `change`. {_TG_FORMAT}",
     tools=[t.get_company_report, t.get_daily, t.get_filings, t.change],
     model_settings=_SETTINGS,

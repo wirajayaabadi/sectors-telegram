@@ -1,0 +1,18 @@
+{
+ "results": [
+  {
+   "symbol": "TLKM.JK",
+   "company_name": "PT Telkom Indonesia (Persero) Tbk"
+  }
+ ],
+ "pagination": {
+  "total_count": 1,
+  "showing": 1,
+  "limit": 5,
+  "offset": 0,
+  "has_next": false,
+  "has_previous": false,
+  "next_offset": null,
+  "previous_offset": null
+ }
+}

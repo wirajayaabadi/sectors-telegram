@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Panduan Proyek — Sectors Telegram Bot</title>
+<style>
+  :root {
+    --bg: #0f1115;
+    --panel: #161a21;
+    --panel-2: #1c212a;
+    --border: #2a313d;
+    --text: #e4e7eb;
+    --muted: #9aa4b2;
+    --accent: #4ea3ff;
+    --accent-2: #7ee787;
+    --warn: #ffb454;
+    --danger: #ff7b72;
+    --mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.7;
+    font-size: 16px;
+  }
+  .wrap { max-width: 1040px; margin: 0 auto; padding: 48px 24px 120px; }
+  header.hero {
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 28px;
+    margin-bottom: 36px;
+  }
+  h1 { font-size: 2.1rem; margin: 0 0 8px; letter-spacing: -0.02em; }
+  .sub { color: var(--muted); font-size: 1.05rem; margin: 0; }
+  .badges { margin-top: 16px; display: flex; flex-wrap: wrap; gap: 8px; }
+  .badge {
+    background: var(--panel-2); border: 1px solid var(--border);
+    border-radius: 999px; padding: 4px 12px; font-size: 0.8rem;
+    color: var(--muted); font-family: var(--mono);
+  }
+  h2 {
+    font-size: 1.5rem; margin: 56px 0 16px; padding-top: 8px;
+    letter-spacing: -0.01em; border-top: 1px solid var(--border); padding-top: 32px;
+  }
+  h2:first-of-type { border-top: none; padding-top: 0; }
+  h3 { font-size: 1.1rem; margin: 32px 0 10px; color: var(--accent); }
+  p { margin: 0 0 14px; }
+  a { color: var(--accent); }
+  code {
+    font-family: var(--mono); font-size: 0.87em;
+    background: var(--panel-2); border: 1px solid var(--border);
+    border-radius: 5px; padding: 1px 6px;
+  }
+  pre {
+    background: var(--panel); border: 1px solid var(--border);
+    border-radius: 10px; padding: 16px 18px; overflow-x: auto;
+    font-family: var(--mono); font-size: 0.87rem; line-height: 1.6;
+  }
+  pre code { background: none; border: none; padding: 0; font-size: inherit; }
+  .cmt { color: var(--muted); }
+  table {
+    width: 100%; border-collapse: collapse; margin: 18px 0; font-size: 0.92rem;
+  }
+  th, td {
+    text-align: left; padding: 10px 12px; border-bottom: 1px solid var(--border);
+    vertical-align: top;
+  }
+  th { color: var(--muted); font-weight: 600; font-size: 0.82rem; text-transform: uppercase; letter-spacing: 0.04em; }
+  td code { white-space: nowrap; }
+  .card {
+    background: var(--panel); border: 1px solid var(--border);
+    border-radius: 12px; padding: 18px 22px; margin: 16px 0;
+  }
+  .note { border-left: 3px solid var(--accent); }
+  .warn { border-left: 3px solid var(--warn); }
+  .danger { border-left: 3px solid var(--danger); }
+  .ok { border-left: 3px solid var(--accent-2); }
+  .card-title { font-weight: 600; margin: 0 0 6px; }
+  ul, ol { margin: 0 0 14px; padding-left: 22px; }
+  li { margin-bottom: 6px; }
+  .toc { background: var(--panel); border: 1px solid var(--border); border-radius: 12px; padding: 18px 24px; }
+  .toc ol { margin: 0; }
+  .flow {
+    font-family: var(--mono); font-size: 0.85rem; background: var(--panel);
+    border: 1px solid var(--border); border-radius: 10px; padding: 20px;
+    overflow-x: auto; white-space: pre; color: var(--muted); line-height: 1.8;
+  }
+  .flow b { color: var(--accent-2); font-weight: 600; }
+  .step-num {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 24px; height: 24px; border-radius: 50%; background: var(--accent);
+    color: #05070a; font-weight: 700; font-size: 0.8rem; margin-right: 8px;
+    font-family: var(--mono);
+  }
+  footer { margin-top: 72px; padding-top: 24px; border-top: 1px solid var(--border); color: var(--muted); font-size: 0.88rem; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 14px; }
+  .kbd { font-family: var(--mono); color: var(--accent-2); }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="hero">
+  <h1>Sectors Telegram Bot</h1>
+  <p class="sub">Bot Telegram yang menyusun <em>morning briefing</em> pasar saham Indonesia (IDX) dan menjawab pertanyaan pasar secara ad-hoc — dijalankan oleh sekelompok AI agent di atas data API <a href="https://sectors.app">Sectors</a>.</p>
+  <div class="badges">
+    <span class="badge">Python ≥ 3.14</span>
+    <span class="badge">python-telegram-bot</span>
+    <span class="badge">openai-agents SDK</span>
+    <span class="badge">Groq (LLM)</span>
+    <span class="badge">SQLite</span>
+    <span class="badge">Docker</span>
+  </div>
+</header>
+
+<div class="toc">
+  <strong>Isi dokumen</strong>
+  <ol>
+    <li><a href="#gambaran">Gambaran besar: apa yang dikerjakan bot ini</a></li>
+    <li><a href="#arsitektur">Arsitektur &amp; alur data</a></li>
+    <li><a href="#modul">Daftar modul lengkap</a></li>
+    <li><a href="#agents">Para agent dan pola kerjanya</a></li>
+    <li><a href="#menjalankan">Yang harus kamu lakukan untuk menjalankannya</a></li>
+    <li><a href="#perintah">Perintah bot di Telegram</a></li>
+    <li><a href="#konfigurasi">Referensi konfigurasi (.env)</a></li>
+    <li><a href="#testing">Menguji agent tanpa Telegram</a></li>
+    <li><a href="#checkpoints">Checkpoints: belajar bertahap</a></li>
+    <li><a href="#deploy">Deployment 24/7</a></li>
+    <li><a href="#masalah">Masalah umum &amp; solusinya</a></li>
+  </ol>
+</div>
+
+<h2 id="gambaran">1. Gambaran besar</h2>
+
+<p>Proyek ini adalah contoh nyata (<em>worked example</em>) dari sebuah workshop tentang membuat AI agent yang benar-benar berguna. Prinsip utamanya satu kalimat:</p>
+
+<div class="card ok">
+  <p class="card-title">Prinsip inti</p>
+  <p style="margin:0">Biarkan AI yang memutuskan <em>apa yang harus dikatakan</em>, dan biarkan kode biasa menangani <em>semua yang harus tepat persis</em> — angka, format, batas panjang pesan, dan disclaimer.</p>
+</div>
+
+<p>Konkretnya, itu berarti: LLM tidak pernah menghitung sendiri (ada tool <code>change</code> untuk aritmetika), tidak pernah mengarang angka (semua wajib berasal dari tool), dan sebuah agent <em>critic</em> memeriksa hasil agent penulis sebelum pesan dikirim ke pengguna.</p>
+
+<h3>Tiga kemampuan utama</h3>
+<ul>
+  <li><strong>Laporan pagi (<code>/report</code>)</strong> — empat analis mengumpulkan data secara paralel, seorang editor menggabungkannya menjadi satu laporan, lalu seorang kritikus memeriksanya terhadap aturan grounding sebelum dikirim.</li>
+  <li><strong>Tanya-jawab (<code>/ask</code> atau ketik langsung)</strong> — agent triage mengarahkan pertanyaan ke spesialis yang tepat: pasar secara umum, satu perusahaan IDX, atau sekelompok perusahaan.</li>
+  <li><strong>Perbandingan (<code>/compare BBCA BBRI</code>)</strong> — tiap perusahaan diriset analis sendiri, lalu satu comparator tanpa tool menyusun tabelnya.</li>
+  <li><strong>Pengiriman terjadwal</strong> — laporan pagi yang sama dikirim otomatis setiap hari ke semua chat yang berlangganan.</li>
+</ul>
+
+<h2 id="arsitektur">2. Arsitektur &amp; alur data</h2>
+
+<div class="flow">Telegram  ──▶  <b>main.py</b> (polling)  ──▶  <b>handlers.py</b>
+                                         │
+        ┌────────────────────────────────┼────────────────────────────────┐
+        │                                │                                │
+   /report                           /ask &amp; teks                      /ihsg, /start,
+        │                                │                             /stop, /status
+        ▼                                ▼                                │
+  <b>report.py</b> (manager)           <b>triage.py</b> (handoff)               ▼
+        │                                │                          <b>sectors.py</b> / <b>store.py</b>
+        │  4 analis paralel              │  guardrail: on-topic?
+        ▼                                ▼
+  <b>specialists.py</b>              <b>chat.py</b> specialists
+   Index / Movers                 Market · IDX Company · Research
+   Flow  / News                          │
+        │                                └──▶ <b>research.py</b> (screen → riset → sintesis)
+        ▼
+    <b>editor.py</b>  ◀───┐
+        │             │ revisi (maks. 2 putaran)
+        ▼             │
+    <b>critic.py</b>  ────┘
+        │
+        ▼
+   <b>render.py</b> ──▶ HTML aman untuk Telegram, dipotong &lt; 4096 karakter
+        │
+        ▼
+   <b>jobs.py</b> ──▶ broadcast ke semua subscriber (terjadwal harian)
+
+Semua agent memanggil data lewat <b>tools.py</b> ──▶ <b>sectors.py</b> ──▶ Sectors API v2</div>
+
+<h2 id="modul">3. Daftar modul lengkap</h2>
+
+<h3>Lapisan Telegram &amp; infrastruktur</h3>
+<table>
+  <tr><th style="width:24%">Modul</th><th>Perannya</th></tr>
+  <tr>
+    <td><code>app/main.py</code></td>
+    <td>Titik masuk aplikasi. Membangun <code>Application</code> python-telegram-bot, menjalankan <code>on_startup</code> (inisialisasi DB, konfigurasi LLM, daftarkan job harian, set menu perintah "/"), lalu <code>run_polling()</code>. Juga mengatur logging dan membungkam log <code>httpx</code>/<code>telegram</code> yang bocor-informasi.</td>
+  </tr>
+  <tr>
+    <td><code>app/handlers.py</code></td>
+    <td>Semua handler perintah Telegram: <code>/start</code>, <code>/stop</code>, <code>/status</code>, <code>/whoami</code>, <code>/ihsg</code>, <code>/report</code>, <code>/ask</code>, <code>/reset</code>, <code>/testjob</code>, plus handler teks bebas (hanya di chat privat, supaya bot tidak menyahut setiap pesan grup).</td>
+  </tr>
+  <tr>
+    <td><code>app/config.py</code></td>
+    <td>Konfigurasi terpusat berbasis <code>pydantic-settings</code>, membaca <code>.env</code>. Menyediakan nilai default yang masuk akal (zona waktu Asia/Jakarta, jam laporan 07:30, path SQLite) dan properti turunan seperti <code>tz</code>, <code>report_time_obj</code>, dan <code>admin_ids</code>.</td>
+  </tr>
+  <tr>
+    <td><code>app/store.py</code></td>
+    <td>Penyimpanan SQLite untuk daftar subscriber. Empat fungsi sederhana: <code>subscribe</code>, <code>unsubscribe</code>, <code>is_subscribed</code>, <code>active_chat_ids</code>. Skema dibuat otomatis saat startup.</td>
+  </tr>
+  <tr>
+    <td><code>app/jobs.py</code></td>
+    <td>Pengiriman terjadwal. <code>morning_job</code> membangun laporan sekali lalu menyiarkannya ke seluruh subscriber dengan jeda 50 ms (di bawah limit flood control Telegram), menangani <code>RetryAfter</code>, dan otomatis meng-<em>unsubscribe</em> chat yang memblokir bot.</td>
+  </tr>
+  <tr>
+    <td><code>app/render.py</code></td>
+    <td>Mengubah objek <code>Report</code> menjadi pesan HTML yang aman untuk Telegram. Dua pekerjaan yang <em>wajib</em> dilakukan kode dan bukan LLM: escape karakter <code>&lt; &gt; &amp;</code>, dan memotong pesan agar tetap di bawah batas 4096 karakter. Disclaimer juga ditempelkan di sini.</td>
+  </tr>
+  <tr>
+    <td><code>app/sectors.py</code></td>
+    <td>Klien async untuk Sectors Financial API v2 (IDX saja). Berisi peta <code>ENDPOINTS</code>, retry otomatis untuk status 429/5xx dengan menghormati header <code>Retry-After</code>, serta pesan error yang ramah (misalnya "invalid or missing API key" untuk 401).</td>
+  </tr>
+  <tr>
+    <td><code>app/provider.py</code></td>
+    <td>Menghubungkan OpenAI Agents SDK ke Groq lewat endpoint yang kompatibel-OpenAI. Mengekspor dua model siap pakai, <code>SMALL</code> dan <code>LARGE</code>, dan mematikan tracing.</td>
+  </tr>
+  <tr>
+    <td><code>app/schemas.py</code></td>
+    <td>Model Pydantic yang menjadi "kontrak" keluaran agent: <code>Section</code>, <code>KeyNumber</code>, <code>Report</code>, <code>WatchlistItem</code>, <code>ValidTickers</code>, <code>EvaluationFeedback</code>, <code>TopicCheck</code>. Setiap field punya deskripsi yang ikut dibaca model.</td>
+  </tr>
+  <tr>
+    <td><code>app/tools.py</code></td>
+    <td>Jembatan antara agent dan Sectors API — setiap tool hanyalah fungsi yang boleh dipanggil AI. Berisi <code>get_daily</code>, <code>get_index</code>, <code>get_idx_total</code>, <code>get_foreign_flow</code>, <code>get_company_report</code>, <code>get_subsector_report</code>, <code>screen_companies</code>, <code>get_news</code>, <code>get_filings</code>, dan <code>change</code> (kalkulator perubahan persen). Payload sengaja dipangkas dan market cap sudah diskalakan ke triliun agar model tidak salah baca angka besar.</td>
+  </tr>
+  <tr>
+    <td><code>app/report.py</code></td>
+    <td><em>Manager</em> laporan pagi. Mengumpulkan <code>Section</code> dari para analis, menyerahkannya ke editor, lalu menjalankan loop revisi editor↔kritikus maksimal 2 putaran. Punya dua mode: paralel penuh (4 analis) jika <code>IS_PAID=true</code>, atau mode hemat (2 analis, berurutan dengan jeda 3 detik) untuk Groq free tier.</td>
+  </tr>
+</table>
+
+<h3>Paket agent — <code>app/sectors_agents/</code></h3>
+<table>
+  <tr><th style="width:24%">Modul</th><th>Perannya</th></tr>
+  <tr>
+    <td><code>rules.py</code></td>
+    <td><code>BASE_RULES</code>: instruksi bersama yang ditempelkan ke setiap agent. Isinya aturan grounding — hanya pakai angka dari tool, jangan mengarang tanggal, jangan memberi saran beli/jual, format ticker dan persentase, dan jaga permintaan tool tetap kecil.</td>
+  </tr>
+  <tr>
+    <td><code>specialists.py</code></td>
+    <td>Empat analis laporan pagi: <strong>Index</strong>, <strong>Movers</strong>, <strong>Flow</strong>, <strong>News</strong>. Setiap analis sebenarnya <em>dua</em> agent berantai — satu <em>fetcher</em> yang memakai tool dan menulis teks biasa, lalu satu <em>formatter</em> bersama yang mengubahnya menjadi <code>Section</code> terstruktur. Pemisahan ini wajib karena Groq tidak bisa menggabungkan tool-calling dan JSON mode dalam satu request. Di sini juga ada <code>run_structured()</code> yang mengulang percobaan ketika model memuntahkan JSON rusak.</td>
+  </tr>
+  <tr>
+    <td><code>editor.py</code></td>
+    <td>Agent editor: menerima JSON dari para analis dan merakitnya menjadi satu <code>Report</code> — headline, section yang dirapikan, watchlist maksimal 5 ticker, dan tanggal <code>as_of</code>. Dilarang keras menambah angka atau ticker yang tidak ada di input.</td>
+  </tr>
+  <tr>
+    <td><code>critic.py</code></td>
+    <td>Agent kritikus/evaluator. Memeriksa laporan terhadap sumbernya dengan <em>hard checks</em> yang tidak pernah bisa lolos (angka karangan, ticker karangan, bahasa saran investasi, format tanggal salah) dan <em>soft checks</em> soal kualitas yang makin longgar seiring iterasi. Mengembalikan <code>EvaluationFeedback</code> berisi skor dan daftar perbaikan konkret.</td>
+  </tr>
+  <tr>
+    <td><code>triage.py</code></td>
+    <td>Router untuk <code>/ask</code>, memakai pola <strong>handoff</strong>: ia menyerahkan kendali penuh ke satu spesialis, lalu mundur. Memori percakapan per chat disimpan lewat <code>SQLiteSession</code>, dan <code>reset_memory()</code> menghapusnya. Guardrail dijalankan lebih dulu di sini.</td>
+  </tr>
+  <tr>
+    <td><code>chat.py</code></td>
+    <td>Para spesialis tujuan handoff: <strong>Market Agent</strong> (indeks, market cap, movers, foreign flow), <strong>IDX Company Agent</strong> (satu emiten), dan <strong>Research Agent</strong> (sekelompok perusahaan, memanggil pipeline riset lewat tool <code>research_group</code>).</td>
+  </tr>
+  <tr>
+    <td><code>research.py</code></td>
+    <td>Pipeline riset multi-perusahaan dengan pola <em>manager</em>: screener menemukan ticker → setiap ticker diriset paralel → synthesizer merangkum menjadi satu <code>Report</code>. Cocok untuk pertanyaan seperti "bagaimana perusahaan-perusahaan Prajogo Pangestu?". Dibatasi maksimal 5 ticker.</td>
+  </tr>
+  <tr>
+    <td><code>guardrail.py</code></td>
+    <td><em>Input guardrail</em> yang berjalan sebelum triage. Sebuah agent kecil mengklasifikasi pesan: apakah on-topic, dan apakah ia meminta saran personal ("saya harus beli apa?"). Jika salah satu terpicu, pertanyaan ditolak dengan sopan.</td>
+  </tr>
+</table>
+
+<h3>File pendukung</h3>
+<table>
+  <tr><th style="width:24%">File</th><th>Perannya</th></tr>
+  <tr><td><code>pyproject.toml</code> + <code>uv.lock</code></td><td>Definisi dependensi dan lockfile untuk <code>uv</code>.</td></tr>
+  <tr><td><code>.env.example</code></td><td>Template variabel lingkungan. Salin jadi <code>.env</code> lalu isi kunci-kuncinya.</td></tr>
+  <tr><td><code>Dockerfile</code></td><td>Resep image Docker berbasis image resmi uv + Python 3.14. Dependensi diinstal di layer terpisah agar rebuild cepat.</td></tr>
+  <tr><td><code>scripts/try_agent.py</code></td><td>Menjalankan satu agent atau satu sub-pipeline secara terisolasi, tanpa Telegram. Sangat berguna saat mengembangkan atau men-debug agent.</td></tr>
+  <tr><td><code>checkpoints/step1..8/</code></td><td>Delapan snapshot lengkap dan bisa dijalankan, satu per langkah workshop. Step 8 identik dengan versi di root.</td></tr>
+  <tr><td><code>README.md</code>, <code>DEPLOY.md</code></td><td>Dokumentasi asli dari penulis (Calvin) — pengantar proyek dan panduan deployment.</td></tr>
+</table>
+
+<h2 id="agents">4. Para agent dan pola kerjanya</h2>
+
+<p>Ada dua pola orkestrasi yang sengaja dikontraskan di proyek ini, dan memahami perbedaannya adalah inti dari materinya.</p>
+
+<div class="grid">
+  <div class="card note">
+    <p class="card-title">Pola Manager</p>
+    <p style="margin:0 0 8px">Koordinator memanggil para pekerja, menerima hasilnya kembali, lalu merakit jawabannya sendiri. <strong>Kendali tidak pernah berpindah.</strong></p>
+    <p style="margin:0;color:var(--muted);font-size:0.9rem">Dipakai di <code>report.py</code> (laporan pagi) dan <code>research.py</code> (riset grup perusahaan).</p>
+  </div>
+  <div class="card note">
+    <p class="card-title">Pola Handoff</p>
+    <p style="margin:0 0 8px">Router memilih satu spesialis lalu mundur, dan spesialis itulah yang menjawab pengguna secara langsung. <strong>Kendali berpindah.</strong></p>
+    <p style="margin:0;color:var(--muted);font-size:0.9rem">Dipakai di <code>triage.py</code> untuk menjawab pertanyaan <code>/ask</code>.</p>
+  </div>
+</div>
+
+<h3>Kenapa setiap analis terdiri dari dua agent?</h3>
+<p>Groq tidak bisa melayani <em>tool calling</em> dan <em>structured output</em> (JSON mode) dalam satu request yang sama. Solusinya adalah memecahnya: agent <em>fetcher</em> memanggil tool dan menulis ringkasan teks biasa, lalu agent <em>formatter</em> (tanpa tool) mengubah ringkasan itu menjadi objek <code>Section</code>. Tidak ada satu request pun yang memuat keduanya, jadi Groq senang. Pola yang sama dipakai juga di pipeline riset.</p>
+
+<div class="card warn">
+  <p class="card-title">Degradasi yang anggun</p>
+  <p style="margin:0">Satu analis yang gagal tidak menjatuhkan seluruh laporan — <code>_safe_specialist</code> menangkap error, mencatatnya, dan laporan tetap terbit dengan section yang tersisa. Laporan baru benar-benar gagal jika <em>semua</em> analis gagal.</p>
+</div>
+
+<h2 id="menjalankan">5. Yang harus kamu lakukan untuk menjalankannya</h2>
+
+<div class="card danger">
+  <p class="card-title">Kondisi mesin kamu saat ini</p>
+  <p style="margin:0 0 8px">Dua hal yang perlu disiapkan sebelum bot bisa jalan:</p>
+  <ul style="margin:0">
+    <li><code>uv</code> <strong>belum terpasang</strong> — perlu diinstal (langkah 1 di bawah).</li>
+    <li>File <code>.env</code> <strong>belum ada</strong> — baru ada <code>.env.example</code> (langkah 3).</li>
+  </ul>
+  <p style="margin:8px 0 0">Kabar baiknya, Python 3.14.3 sudah terpasang dan itu sesuai dengan syarat <code>requires-python &gt;= 3.14</code>.</p>
+</div>
+
+<h3><span class="step-num">1</span>Pasang <code>uv</code></h3>
+<p><code>uv</code> adalah package manager Python yang dipakai proyek ini. Pilih salah satu cara:</p>
+<pre><code><span class="cmt"># Cara resmi (installer skrip)</span>
+curl -LsSf https://astral.sh/uv/install.sh | sh
+
+<span class="cmt"># Atau lewat Homebrew, kalau kamu sudah pakai brew</span>
+brew install uv</code></pre>
+<p>Setelah instalasi lewat skrip, buka terminal baru (atau jalankan <code>source $HOME/.local/bin/env</code>) supaya <code>uv</code> terbaca di <code>PATH</code>. Verifikasi dengan <code>uv --version</code>.</p>
+
+<h3><span class="step-num">2</span>Siapkan tiga kunci API</h3>
+<table>
+  <tr><th style="width:26%">Kunci</th><th style="width:30%">Dari mana</th><th>Catatan</th></tr>
+  <tr>
+    <td><code>TELEGRAM_BOT_TOKEN</code></td>
+    <td><a href="https://t.me/BotFather">@BotFather</a> di Telegram</td>
+    <td>Kirim <code>/newbot</code>, ikuti instruksinya, salin token yang diberikan.</td>
+  </tr>
+  <tr>
+    <td><code>SECTORS_API_KEY</code></td>
+    <td><a href="https://sectors.app">sectors.app</a></td>
+    <td>Daftar akun, ambil API key dari dashboard.</td>
+  </tr>
+  <tr>
+    <td><code>GROQ_API_KEY</code></td>
+    <td><a href="https://console.groq.com/keys">console.groq.com/keys</a></td>
+    <td>Gratis untuk memulai. Free tier punya limit token per menit — lihat catatan <code>IS_PAID</code> di bawah.</td>
+  </tr>
+</table>
+
+<h3><span class="step-num">3</span>Buat file <code>.env</code></h3>
+<pre><code>cd /Users/wirajaya/Documents/project/sectors-telegram
+cp .env.example .env</code></pre>
+<p>Lalu buka <code>.env</code> dan isi minimal tiga baris ini:</p>
+<pre><code>TELEGRAM_BOT_TOKEN=<span class="cmt">token dari BotFather</span>
+SECTORS_API_KEY=<span class="cmt">key dari sectors.app</span>
+GROQ_API_KEY=<span class="cmt">key dari console.groq.com</span>
+IS_PAID=false</code></pre>
+
+<div class="card warn">
+  <p class="card-title">Soal <code>IS_PAID</code></p>
+  <p style="margin:0">Kalau kamu pakai Groq <strong>free tier</strong>, setel <code>IS_PAID=false</code>. Laporan akan dibuat oleh 2 analis saja (Index dan News), dijalankan satu per satu dengan jeda 3 detik supaya tidak menembus limit token per menit. Dengan Groq berbayar, setel <code>true</code> untuk laporan penuh 4 analis secara paralel.</p>
+  <p style="margin:8px 0 0"><em>Perhatikan:</em> nilai default di kode adalah <code>True</code>, sedangkan <code>.env.example</code> menuliskan <code>false</code>. Jadi kalau kamu tidak mencantumkan baris ini sama sekali, kamu akan mendapat mode berbayar. Tulis eksplisit.</p>
+</div>
+
+<h3><span class="step-num">4</span>Pasang dependensi dan jalankan</h3>
+<pre><code>uv sync
+uv run python -m app.main</code></pre>
+<p>Kalau berhasil, log akan menampilkan sesuatu seperti ini, dan proses akan terus berjalan sampai kamu tekan <span class="kbd">Ctrl+C</span>:</p>
+<pre><code>Bot is starting up...
+Database initialized.
+LLM: Groq configured: https://api.groq.com/openai/v1, ...
+scheduled morning_report at 07:30 Asia/Jakarta
+&lt;NamaBot&gt; online. Username: @namabot_bot, ID: 12345678</code></pre>
+
+<h3><span class="step-num">5</span>Coba di Telegram</h3>
+<ol>
+  <li>Cari bot kamu di Telegram lewat username yang tadi muncul di log.</li>
+  <li>Kirim <code>/start</code> — kamu akan berlangganan dan mendapat daftar bantuan.</li>
+  <li>Kirim <code>/whoami</code> — catat <strong>user ID</strong> yang muncul.</li>
+  <li>Masukkan ID itu ke <code>ADMIN_CHAT_IDS</code> di <code>.env</code>, lalu restart bot. Ini membuka perintah admin <code>/testjob</code>.</li>
+  <li>Kirim <code>/report</code> dan beri waktu sekitar satu menit — ini menjalankan seluruh pipeline analis → editor → kritikus.</li>
+</ol>
+
+<div class="card note">
+  <p class="card-title">Uji bertahap kalau ada yang macet</p>
+  <p style="margin:0">Mulai dari yang paling murah: <code>/ihsg</code> hanya menyentuh Sectors API tanpa LLM sama sekali. Kalau <code>/ihsg</code> jalan tapi <code>/report</code> tidak, masalahnya ada di sisi Groq, bukan di data.</p>
+</div>
+
+<h2 id="perintah">6. Perintah bot di Telegram</h2>
+<table>
+  <tr><th style="width:22%">Perintah</th><th>Fungsi</th></tr>
+  <tr><td><code>/start</code></td><td>Berlangganan dan menampilkan bantuan.</td></tr>
+  <tr><td><code>/report</code></td><td>Membuat laporan pagi lengkap sekarang juga. Butuh sekitar satu menit.</td></tr>
+  <tr><td><code>/ihsg</code></td><td>Level IHSG terakhir beserta perubahannya. Murni kode, tanpa LLM.</td></tr>
+  <tr><td><code>/compare &lt;ticker&gt;</code></td><td>Membandingkan 2–4 emiten IDX berdampingan, mis. <code>/compare BBCA BBRI</code>.</td></tr>
+  <tr><td><code>/ask &lt;pertanyaan&gt;</code></td><td>Bertanya soal pasar IDX atau satu perusahaan. Di chat privat kamu juga bisa langsung mengetik pertanyaan tanpa perintah.</td></tr>
+  <tr><td><code>/reset</code></td><td>Menghapus memori percakapan untuk chat ini.</td></tr>
+  <tr><td><code>/status</code></td><td>Cek status langganan. Admin juga melihat jumlah subscriber aktif.</td></tr>
+  <tr><td><code>/whoami</code></td><td>Menampilkan chat ID dan user ID kamu.</td></tr>
+  <tr><td><code>/stop</code></td><td>Berhenti berlangganan.</td></tr>
+  <tr><td><code>/testjob</code></td><td><em>Admin saja.</em> Menjalankan job laporan terjadwal dalam ~10 detik, dikirim hanya ke kamu.</td></tr>
+</table>
+
+<h2 id="konfigurasi">7. Referensi konfigurasi (<code>.env</code>)</h2>
+<table>
+  <tr><th style="width:26%">Variabel</th><th style="width:22%">Default</th><th>Keterangan</th></tr>
+  <tr><td><code>TELEGRAM_BOT_TOKEN</code></td><td><em>wajib</em></td><td>Tanpa ini bot menolak start dengan pesan yang jelas.</td></tr>
+  <tr><td><code>ADMIN_CHAT_IDS</code></td><td>kosong</td><td>User ID numerik, dipisah koma. Membuka <code>/testjob</code> dan info subscriber di <code>/status</code>.</td></tr>
+  <tr><td><code>SECTORS_API_KEY</code></td><td><em>wajib</em></td><td>Tanpa ini setiap panggilan data gagal.</td></tr>
+  <tr><td><code>SECTORS_API_URL</code></td><td><code>https://api.sectors.app</code></td><td>Jarang perlu diubah; path sudah membawa <code>/v2</code>.</td></tr>
+  <tr><td><code>GROQ_API_KEY</code></td><td>kosong</td><td>Bot tetap bisa start tanpa ini, tapi <code>/ask</code> dan <code>/report</code> tidak berfungsi.</td></tr>
+  <tr><td><code>LLM_BASE_URL</code></td><td><code>https://api.groq.com/openai/v1</code></td><td>Endpoint kompatibel-OpenAI. Bisa diarahkan ke provider lain.</td></tr>
+  <tr><td><code>MODEL_SMALL</code> / <code>MODEL_LARGE</code></td><td><code>qwen/qwen3.8-27b</code></td><td>Model untuk agent ringan dan agent penulis/penilai.</td></tr>
+  <tr><td><code>IS_PAID</code></td><td><code>true</code> di kode</td><td><code>false</code> = laporan hemat 2 analis berurutan. <code>true</code> = 4 analis paralel.</td></tr>
+  <tr><td><code>TIMEZONE</code></td><td><code>Asia/Jakarta</code></td><td>Zona waktu untuk penjadwalan.</td></tr>
+  <tr><td><code>REPORT_TIME</code></td><td><code>07:30</code></td><td>Jam kirim laporan harian, format <code>HH:MM</code> dalam <code>TIMEZONE</code>.</td></tr>
+  <tr><td><code>DB_PATH</code></td><td><code>data/bot.db</code></td><td>Lokasi SQLite untuk subscriber dan memori percakapan.</td></tr>
+  <tr><td><code>LOG_LEVEL</code></td><td><code>INFO</code></td><td>Pakai <code>DEBUG</code> untuk melihat detail lebih banyak saat menelusuri masalah.</td></tr>
+</table>
+
+<h2 id="testing">8. Menguji agent tanpa Telegram</h2>
+<p>Saat mengembangkan agent, memutar seluruh bot itu lambat. Gunakan <code>scripts/try_agent.py</code> untuk menjalankan satu bagian saja:</p>
+<pre><code><span class="cmt"># lihat daftar nama yang tersedia</span>
+uv run python scripts/try_agent.py
+
+<span class="cmt"># satu spesialis laporan (fetcher + formatter → Section)</span>
+uv run python scripts/try_agent.py index
+
+<span class="cmt"># pipeline laporan pagi utuh (manager + kritikus)</span>
+uv run python scripts/try_agent.py report
+
+<span class="cmt"># satu agent Q&amp;A langsung</span>
+uv run python scripts/try_agent.py market "how is IHSG this week?"
+
+<span class="cmt"># pipeline riset grup perusahaan</span>
+uv run python scripts/try_agent.py research "companies affiliated with Prajogo Pangestu"
+
+<span class="cmt"># lewat triage + guardrail, persis seperti /ask sungguhan</span>
+uv run python scripts/try_agent.py ask "what should I buy?"</code></pre>
+<p>Nama yang tersedia: <code>market</code>, <code>idx_company</code>, <code>triage</code>, <code>index</code>, <code>movers</code>, <code>flow</code>, <code>news</code>, <code>report</code>, <code>research</code>, <code>compare</code>, <code>ask</code>. Skrip ini menyalakan logging level INFO, jadi kamu bisa melihat setiap pemanggilan tool dan status HTTP-nya saat agent berjalan.</p>
+
+<h2 id="checkpoints">9. Checkpoints: belajar bertahap</h2>
+<p>Folder <code>checkpoints/</code> berisi delapan snapshot lengkap yang bisa dijalankan sendiri-sendiri. Setiap folder punya README-nya sendiri. Kalau kamu ingin memahami proyek ini dari nol, baca berurutan — masing-masing dibangun langsung di atas yang sebelumnya.</p>
+<table>
+  <tr><th style="width:8%">Step</th><th style="width:26%">Judul</th><th style="width:44%">Yang ditambahkan</th><th>Kunci</th></tr>
+  <tr><td>1</td><td>Hello bot</td><td>handler <code>/hello</code> tunggal</td><td>Telegram</td></tr>
+  <tr><td>2</td><td>Subscribers</td><td>paket <code>app/</code>, SQLite store, <code>/start /stop /status</code></td><td>Telegram</td></tr>
+  <tr><td>3</td><td>First data</td><td>klien Sectors API, <code>/ihsg</code></td><td>+ Sectors</td></tr>
+  <tr><td>4</td><td>The report, in plain code</td><td>schemas, render, <code>/report</code> yang dibangun murni oleh kode</td><td>+ Sectors</td></tr>
+  <tr><td>5</td><td>Schedule and broadcast</td><td>job harian, <code>/testjob</code></td><td>+ Sectors</td></tr>
+  <tr><td>6</td><td>Your first agent</td><td>provider, tools, satu agent, <code>/ask</code></td><td>+ Groq</td></tr>
+  <tr><td>7</td><td>The report team</td><td>analis, editor, kritikus — pola manager</td><td>+ Groq</td></tr>
+  <tr><td>8</td><td>The full app</td><td>triage, spesialis, riset, guardrail — pola handoff</td><td>+ Groq</td></tr>
+</table>
+<p>Cara menjalankan salah satu step: masuk ke foldernya, salin <code>.env.example</code> jadi <code>.env</code>, isi kunci yang dibutuhkan step itu, lalu <code>uv sync</code> dan jalankan perintah yang tertulis di README-nya.</p>
+
+<h2 id="deploy">10. Deployment 24/7</h2>
+<p>Bot hanya hidup selama proses Python-nya berjalan. Begitu terminal ditutup atau laptop tidur, jadwal laporan pagi berhenti. Untuk membuatnya menyala terus, proses yang sama perlu dipindah ke komputer yang tidak pernah tidur.</p>
+
+<p>Untungnya bot ini memakai <em>polling</em> — ia yang menghubungi Telegram, bukan sebaliknya. Jadi tidak perlu alamat web publik, port terbuka, atau urusan jaringan lain. Cukup proses yang terus hidup.</p>
+
+<h3>Uji container di mesin sendiri dulu</h3>
+<pre><code>docker build -t sectors-bot .
+docker run --rm --env-file .env sectors-bot</code></pre>
+<p>Kalau log menampilkan "online" dan <code>/report</code> jalan di Telegram, container-nya sehat. Host mana pun akan menjalankan container yang sama persis.</p>
+
+<h3>Pilihan hosting</h3>
+<ul>
+  <li><strong>Railway</strong> — paling mudah. Hubungkan repo GitHub, Railway mendeteksi <code>Dockerfile</code> dan membangunnya sendiri. Masukkan kunci-kunci kamu di tab Variables. Bisa jalan di tier sekitar 1 dolar per bulan.</li>
+  <li><strong>VPS</strong> — paling banyak kontrol, paling banyak kerja manual:
+    <pre style="margin-top:8px"><code>docker run -d --restart=unless-stopped \
+  --env-file .env -v /srv/botdata:/app/data sectors-bot</code></pre>
+    <code>-d</code> menjalankan di latar belakang, <code>--restart=unless-stopped</code> menghidupkannya kembali kalau crash atau server reboot, dan <code>-v</code> menjaga database tetap hidup.
+  </li>
+</ul>
+
+<div class="card danger">
+  <p class="card-title">Jebakan yang paling sering kena: persistensi</p>
+  <p style="margin:0 0 8px">Daftar subscriber dan memori percakapan tersimpan di file SQLite <code>data/bot.db</code>. Tapi penyimpanan container itu <em>ephemeral</em> — di kebanyakan platform, setiap kali kamu redeploy, disk-nya dihapus dan mulai dari nol. Artinya daftar subscriber kosong lagi dan tidak ada yang menerima laporan terjadwal.</p>
+  <p style="margin:0">Tiga cara menghadapinya: (a) terima saja kalau bot ini murni untuk diri sendiri — cukup <code>/start</code> ulang; (b) pasang <em>volume</em> permanen di <code>/app/data</code>; atau (c) pindah ke Postgres kalau sudah serius.</p>
+</div>
+
+<p>Yang perlu diingat: menjadi online 24/7 tidak membuat bot lebih pintar atau lebih andal. Kualitas keluarannya ditentukan oleh kode — degradasi yang anggun, kritikus, dan aturan grounding — bukan oleh di mana ia berjalan. Deployment hanya menjaga lampunya tetap menyala.</p>
+
+<h2 id="masalah">11. Masalah umum &amp; solusinya</h2>
+<table>
+  <tr><th style="width:36%">Gejala</th><th>Kemungkinan penyebab dan solusinya</th></tr>
+  <tr>
+    <td><code>TELEGRAM_BOT_TOKEN is not set</code> saat start</td>
+    <td>File <code>.env</code> belum ada atau token belum diisi. Pastikan kamu menjalankan perintah dari root proyek, karena <code>.env</code> dibaca relatif terhadap direktori kerja.</td>
+  </tr>
+  <tr>
+    <td><code>SECTORS_API_KEY is empty</code></td>
+    <td>Isi <code>SECTORS_API_KEY</code> di <code>.env</code>. Klien Sectors sengaja gagal cepat dengan pesan ini daripada mengirim request tanpa kunci.</td>
+  </tr>
+  <tr>
+    <td><code>[401] invalid or missing API key</code></td>
+    <td>Kunci Sectors salah atau kedaluwarsa. Perhatikan bahwa kunci dikirim mentah di header <code>Authorization</code>, tanpa awalan <code>Bearer</code>.</td>
+  </tr>
+  <tr>
+    <td>"Set GROQ_API_KEY in .env to enable Q&amp;A."</td>
+    <td>Persis seperti yang tertulis — <code>GROQ_API_KEY</code> kosong. Bot tetap start tanpa kunci ini, hanya fitur AI-nya yang mati.</td>
+  </tr>
+  <tr>
+    <td><code>/report</code> gagal atau sangat lambat, log penuh error 429</td>
+    <td>Kamu menembus rate limit Groq. Setel <code>IS_PAID=false</code> agar laporan memakai 2 analis berurutan dengan jeda, bukan 4 paralel.</td>
+  </tr>
+  <tr>
+    <td>Log berulang "attempt N/3 failed" lalu berhasil</td>
+    <td>Normal. Model kadang mengeluarkan JSON rusak; <code>run_structured</code> memang dirancang mengulang permintaan yang sama beberapa kali.</td>
+  </tr>
+  <tr>
+    <td>Bot membalas "I can only help with market and company data"</td>
+    <td>Guardrail bekerja sebagaimana mestinya — pertanyaanmu dinilai off-topic atau meminta saran investasi personal.</td>
+  </tr>
+  <tr>
+    <td>Bot tidak menyahut di grup</td>
+    <td>Memang disengaja. Teks bebas hanya diproses di chat privat; di grup gunakan perintah <code>/ask</code>.</td>
+  </tr>
+  <tr>
+    <td>Laporan terjadwal tidak pernah terkirim</td>
+    <td>Proses harus hidup pada jam <code>REPORT_TIME</code>. Kalau laptop tidur atau terminal ditutup, job tidak berjalan. Lihat bagian deployment.</td>
+  </tr>
+</table>
+
+<footer>
+  <p>Dokumen ini dibuat dari pembacaan langsung kode di <code>/Users/wirajaya/Documents/project/sectors-telegram</code>. Untuk versi asli dari penulis, lihat <code>README.md</code> dan <code>DEPLOY.md</code> di root proyek, serta README di setiap folder <code>checkpoints/stepN/</code>.</p>
+</footer>
+
+</div>
+</body>
+</html>

@@ -31,7 +31,7 @@ class WatchlistItem(BaseModel):
 
 class ValidTickers(BaseModel):
     tickers: list[str] = Field(
-        description="List of valid ticker symbols. IDX tickers, 4 letters, e.g., 'BBCA', 'BBRI'. SGX tickers, 3 to 4 letters, e.g., 'U11', 'C6L'.",
+        description="List of valid IDX ticker symbols, 4 letters each, e.g., 'BBCA', 'BBRI'.",
     )
 
 
@@ -52,6 +52,35 @@ class EvaluationFeedback(BaseModel):
     )
     score: Literal["pass", "needs_improvement", "fail"] = Field(
         description="pass = send as-is; needs_improvement/fail = revise",
+    )
+
+
+class MetricValue(BaseModel):
+    symbol: str = Field(description="Ticker this value belongs to")
+    value: str = Field(
+        description="The figure as given by the sources, with its unit, e.g. '768.9 trillion IDR'"
+    )
+
+
+class ComparisonRow(BaseModel):
+    metric: str = Field(description="What is being compared, e.g. 'Market cap'")
+    values: list[MetricValue] = Field(description="One entry per company being compared")
+    note: str = Field(
+        description="One factual line on which company leads this metric and by how much"
+    )
+
+
+class Comparison(BaseModel):
+    symbols: list[str] = Field(description="The tickers compared, in the order requested")
+    headline: str = Field(description="One sentence naming the main factual difference")
+    rows: list[ComparisonRow] = Field(
+        description="3-6 metrics compared head to head, each with every company's value"
+    )
+    takeaways: list[str] = Field(
+        description="2-4 short factual bullets. Observations only, never recommendations",
+    )
+    as_of: str = Field(
+        description="A real date from the sources as YYYY-MM-DD (no time, no timezone). Never invented.",
     )
 
 

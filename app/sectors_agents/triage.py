@@ -25,7 +25,6 @@ from app.sectors_agents.chat import (
     idx_company_agent,
     market_agent,
     research_agent,
-    sgx_company_agent,
 )
 from app.sectors_agents.guardrail import topic_guardrail
 from app.sectors_agents.rules import BASE_RULES
@@ -41,12 +40,11 @@ triage_agent = Agent(
         "- Research Agent: a GROUP of companies by theme/owner/sector (e.g. 'Prajogo Pangestu's "
         "companies', 'the big banks', 'nickel miners'). Use this whenever the answer needs "
         "several companies screened and researched together.\n"
-        "- Market Agent: indices (IHSG, STI), market cap, movers, foreign flow, market-wide news.\n"
+        "- Market Agent: indices (IHSG, LQ45), market cap, movers, foreign flow, market-wide news.\n"
         "- IDX Company Agent: ONE specific Indonesian company (4-letter ticker like BBCA).\n"
-        "- SGX Company Agent: ONE specific Singapore company (e.g. D05, U11).\n"
         "Hand off immediately; do not answer yourself. If unsure, use the Market Agent."
     ),
-    handoffs=[research_agent, market_agent, idx_company_agent, sgx_company_agent],
+    handoffs=[research_agent, market_agent, idx_company_agent],
     input_guardrails=[topic_guardrail],
     model_settings=ModelSettings(temperature=0),
 )
@@ -59,7 +57,7 @@ async def answer(chat_id: int, text: str) -> str:
         return str(result.final_output)
     except InputGuardrailTripwireTriggered:
         return (
-            "I can only help with market and company data (IDX/SGX). "
+            "I can only help with Indonesian (IDX) market and company data. "
             "I can't tell you what to personally buy, sell, or hold."
         )
     except Exception:

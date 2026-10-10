@@ -1,0 +1,222 @@
+[
+ {
+  "symbol": "FORU.JK",
+  "date": "2026-09-08",
+  "close": 3700,
+  "open": 3980,
+  "high": 4100,
+  "low": 3670,
+  "volume": 5026200,
+  "market_cap": 1721328800000
+ },
+ {
+  "symbol": "FORU.JK",
+  "date": "2026-09-09",
+  "close": 3640,
+  "open": 3890,
+  "high": 3890,
+  "low": 3340,
+  "volume": 5237400,
+  "market_cap": 1693415360000
+ },
+ {
+  "symbol": "FORU.JK",
+  "date": "2026-09-10",
+  "close": 3550,
+  "open": 3530,
+  "high": 3610,
+  "low": 3380,
+  "volume": 1999300,
+  "market_cap": 1651545200000
+ },
+ {
+  "symbol": "FORU.JK",
+  "date": "2026-09-11",
+  "close": 3720,
+  "open": 3440,
+  "high": 4070,
+  "low": 3300,
+  "volume": 5627900,
+  "market_cap": 1730633280000
+ },
+ {
+  "symbol": "FORU.JK",
+  "date": "2026-09-14",
+  "close": 4650,
+  "open": 4650,
+  "high": 4650,
+  "low": 4330,
+  "volume": 4375800,
+  "market_cap": 2163291600000
+ },
+ {
+  "symbol": "FORU.JK",
+  "date": "2026-09-15",
+  "close": 4220,
+  "open": 5175,
+  "high": 5500,
+  "low": 4150,
+  "volume": 12115400,
+  "market_cap": 1963245280000
+ },
+ {
+  "symbol": "FORU.JK",
+  "date": "2026-09-16",
+  "close": 4020,
+  "open": 4220,
+  "high": 4320,
+  "low": 3940,
+  "volume": 6057100,
+  "market_cap": 1870200480000
+ },
+ {
+  "symbol": "FORU.JK",
+  "date": "2026-09-17",
+  "close": 3540,
+  "open": 4000,
+  "high": 4060,
+  "low": 3540,
+  "volume": 5118700,
+  "market_cap": 1646892960000
+ },
+ {
+  "symbol": "FORU.JK",
+  "date": "2026-09-18",
+  "close": 3010,
+  "open": 3340,
+  "high": 3350,
+  "low": 3010,
+  "volume": 7971500,
+  "market_cap": 1400324240000
+ },
+ {
+  "symbol": "FORU.JK",
+  "date": "2026-09-21",
+  "close": 2560,
+  "open": 2560,
+  "high": 3330,
+  "low": 2560,
+  "volume": 24226800,
+  "market_cap": 1190973440000
+ },
+ {
+  "symbol": "FORU.JK",
+  "date": "2026-09-22",
+  "close": 176,
+  "open": 176,
+  "high": 176,
+  "low": 176,
+  "volume": 145600,
+  "market_cap": 81879424000
+ },
+ {
+  "symbol": "FORU.JK",
+  "date": "2026-09-23",
+  "close": 236,
+  "open": 236,
+  "high": 236,
+  "low": 236,
+  "volume": 112300,
+  "market_cap": 109792864000
+ },
+ {
+  "symbol": "FORU.JK",
+  "date": "2026-09-24",
+  "close": 294,
+  "open": 294,
+  "high": 294,
+  "low": 294,
+  "volume": 2204200,
+  "market_cap": 136775856000
+ },
+ {
+  "symbol": "FORU.JK",
+  "date": "2026-09-25",
+  "close": 360,
+  "open": 366,
+  "high": 366,
+  "low": 300,
+  "volume": 73678500,
+  "market_cap": 167480640000
+ },
+ {
+  "symbol": "FORU.JK",
+  "date": "2026-09-28",
+  "close": 306,
+  "open": 306,
+  "high": 306,
+  "low": 306,
+  "volume": 6566900,
+  "market_cap": 142358544000
+ },
+ {
+  "symbol": "FORU.JK",
+  "date": "2026-09-29",
+  "close": 262,
+  "open": 262,
+  "high": 262,
+  "low": 262,
+  "volume": 1991400,
+  "market_cap": 43895747360782
+ },
+ {
+  "symbol": "FORU.JK",
+  "date": "2026-09-30",
+  "close": 224,
+  "open": 224,
+  "high": 224,
+  "low": 224,
+  "volume": 11788800,
+  "market_cap": 37661674624672
+ },
+ {
+  "symbol": "FORU.JK",
+  "date": "2026-10-01",
+  "close": 191,
+  "open": 191,
+  "high": 191,
+  "low": 191,
+  "volume": 2057700,
+  "market_cap": 32149771867529
+ },
+ {
+  "symbol": "FORU.JK",
+  "date": "2026-10-02",
+  "close": 163,
+  "open": 163,
+  "high": 163,
+  "low": 163,
+  "volume": 3168500,
+  "market_cap": 27473099014686
+ },
+ {
+  "symbol": "FORU.JK",
+  "date": "2026-10-05",
+  "close": 139,
+  "open": 139,
+  "high": 139,
+  "low": 139,
+  "volume": 6669000,
+  "market_cap": 23441739481837
+ },
+ {
+  "symbol": "FORU.JK",
+  "date": "2026-10-06",
+  "close": 124,
+  "open": 126,
+  "high": 133,
+  "low": 120,
+  "volume": 1870544700,
+  "market_cap": 20923181678384
+ },
+ {
+  "symbol": "FORU.JK",
+  "date": "2026-10-07",
+  "close": 144,
+  "open": 124,
+  "high": 144,
+  "low": 122,
+  "volume": 1702078500,
+  "market_cap": 24318465164208
+ }
+]

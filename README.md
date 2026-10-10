@@ -1,9 +1,8 @@
 # Sectors Telegram Bot
 
-A Telegram bot that writes a grounded morning briefing on the Indonesian (IDX) and
-Singapore (SGX) stock markets, and answers ad-hoc market questions on demand. It runs on a
-small team of AI agents built on top of the [Sectors](https://sectors.app) financial data
-API.
+A Telegram bot that writes a grounded morning briefing on the Indonesian (IDX) stock
+market, and answers ad-hoc market questions on demand. It runs on a small team of AI
+agents built on top of the [Sectors](https://sectors.app) financial data API.
 
 ## A note from me
 
@@ -29,11 +28,23 @@ Calvin
   grounding rules before it goes out. This is the "manager" pattern: one coordinator runs
   the workers and assembles the result.
 - **`/ask`, or just typing a question,** routes you to the right specialist: market-wide,
-  one specific IDX or SGX company, or a whole group of companies (try "how are Prajogo
+  one specific IDX company, or a whole group of companies (try "how are Prajogo
   Pangestu's companies doing?"). This is the "handoff" pattern: a triage agent decides who
   should answer, then steps aside.
+- **`/compare BBCA BBRI`** puts two to four companies head to head. Each one is researched
+  by its own analyst, then a comparator with no tools of its own assembles the table. This
+  is the "parallelization" pattern running inside a manager.
 - **Scheduled delivery** sends the same morning report automatically to everyone who has
   subscribed.
+- **`/movers 7d`** and **`/active 10`** rank the market: biggest price moves over a period,
+  and the most traded stocks by share volume on a trading day. Plain code, no LLM; buttons
+  switch period, filter, or list size.
+- **`/stock BBCA`** shows one company's card: latest close and its change, market cap,
+  P/E TTM, P/B MRQ, dividend yield and annual financials, with buttons for profile,
+  financials, valuation and dividends. Plain code, no LLM, like `/sector`.
+- **`/sector banks`** summarises one IDX sub-sector: companies, growth and valuation, with
+  buttons to switch views. Send `/sector` alone to pick from the list. This one is plain
+  code end to end (no LLM): data from the API, maths in Python, a fixed template.
 - A few more: `/ihsg`, `/status`, `/whoami`, `/stop`, `/reset`, and `/testjob` (admin only).
 
 ## Running it locally
@@ -48,6 +59,12 @@ uv run python -m app.main
 ```
 
 Message your bot `/report` and give it a minute to think.
+
+Tests run offline against captured API responses (no credits spent):
+
+```bash
+uv run python -m unittest discover -s tests -t .
+```
 
 ## How the code is laid out
 

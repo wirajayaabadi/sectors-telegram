@@ -1,0 +1,154 @@
+{
+ "top_gainers": {
+  "1d": [
+   {
+    "name": "Fortune Indonesia Tbk",
+    "symbol": "FORU.JK",
+    "price_change": 0.161290322580645,
+    "last_close_price": 144,
+    "latest_close_date": "2026-10-07"
+   },
+   {
+    "name": "PT Victoria Care Indonesia Tbk",
+    "symbol": "VICI.JK",
+    "price_change": 0.144186046511628,
+    "last_close_price": 1230,
+    "latest_close_date": "2026-10-07"
+   },
+   {
+    "name": "PT Global Digital Niaga Tbk",
+    "symbol": "BELI.JK",
+    "price_change": 0.0526315789473684,
+    "last_close_price": 280,
+    "latest_close_date": "2026-10-07"
+   },
+   {
+    "name": "PT Nitrasanata Dharma Tbk",
+    "symbol": "JECX.JK",
+    "price_change": 0.0506756756756757,
+    "last_close_price": 1555,
+    "latest_close_date": "2026-10-07"
+   },
+   {
+    "name": "PT Bank KB Indonesia Tbk",
+    "symbol": "BBKP.JK",
+    "price_change": 0.0476190476190476,
+    "last_close_price": 44,
+    "latest_close_date": "2026-10-07"
+   }
+  ],
+  "7d": [
+   {
+    "name": "Mitrabahtera Segara Sejati Tbk",
+    "symbol": "MBSS.JK",
+    "price_change": 0.557093425605536,
+    "last_close_price": 4500,
+    "latest_close_date": "2026-10-07"
+   },
+   {
+    "name": "PT Victoria Care Indonesia Tbk",
+    "symbol": "VICI.JK",
+    "price_change": 0.359116022099448,
+    "last_close_price": 1230,
+    "latest_close_date": "2026-10-07"
+   },
+   {
+    "name": "Bank of India Indonesia Tbk",
+    "symbol": "BSWD.JK",
+    "price_change": 0.25,
+    "last_close_price": 3600,
+    "latest_close_date": "2026-10-07"
+   },
+   {
+    "name": "Golden Energy Mines Tbk",
+    "symbol": "GEMS.JK",
+    "price_change": 0.196551724137931,
+    "last_close_price": 8675,
+    "latest_close_date": "2026-10-07"
+   },
+   {
+    "name": "PT Nitrasanata Dharma Tbk",
+    "symbol": "JECX.JK",
+    "price_change": 0.178030303030303,
+    "last_close_price": 1555,
+    "latest_close_date": "2026-10-07"
+   }
+  ]
+ },
+ "top_losers": {
+  "1d": [
+   {
+    "name": "PT VKTR Teknologi Mobilitas Tbk",
+    "symbol": "VKTR.JK",
+    "price_change": -0.197604790419162,
+    "last_close_price": 670,
+    "latest_close_date": "2026-10-07"
+   },
+   {
+    "name": "PT Intermedia Capital Tbk",
+    "symbol": "MDIA.JK",
+    "price_change": -0.0921052631578947,
+    "last_close_price": 138,
+    "latest_close_date": "2026-10-07"
+   },
+   {
+    "name": "Bayan Resources Tbk",
+    "symbol": "BYAN.JK",
+    "price_change": -0.0669144981412639,
+    "last_close_price": 12550,
+    "latest_close_date": "2026-10-07"
+   },
+   {
+    "name": "PT Krom Bank Indonesia Tbk",
+    "symbol": "BBSI.JK",
+    "price_change": -0.0599078341013825,
+    "last_close_price": 4080,
+    "latest_close_date": "2026-10-07"
+   },
+   {
+    "name": "PT Transcoal Pacific Tbk",
+    "symbol": "TCPI.JK",
+    "price_change": -0.0583657587548638,
+    "last_close_price": 1210,
+    "latest_close_date": "2026-10-07"
+   }
+  ],
+  "7d": [
+   {
+    "name": "Fortune Indonesia Tbk",
+    "symbol": "FORU.JK",
+    "price_change": -0.357142857142857,
+    "last_close_price": 144,
+    "latest_close_date": "2026-10-07"
+   },
+   {
+    "name": "PT Transcoal Pacific Tbk",
+    "symbol": "TCPI.JK",
+    "price_change": -0.219354838709677,
+    "last_close_price": 1210,
+    "latest_close_date": "2026-10-07"
+   },
+   {
+    "name": "Energi Mega Persada Tbk",
+    "symbol": "ENRG.JK",
+    "price_change": -0.214814814814815,
+    "last_close_price": 1060,
+    "latest_close_date": "2026-10-07"
+   },
+   {
+    "name": "PT Solusi Sinergi Digital Tbk",
+    "symbol": "WIFI.JK",
+    "price_change": -0.161676646706587,
+    "last_close_price": 1400,
+    "latest_close_date": "2026-10-07"
+   },
+   {
+    "name": "PT Arkora Hydro Tbk.",
+    "symbol": "ARKO.JK",
+    "price_change": -0.153614457831325,
+    "last_close_price": 2810,
+    "latest_close_date": "2026-10-07"
+   }
+  ]
+ }
+}

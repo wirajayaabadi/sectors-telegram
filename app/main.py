@@ -14,6 +14,11 @@ log = logging.getLogger(__name__)
 COMMANDS = [
     BotCommand("report", "Generate the morning report now"),
     BotCommand("ihsg", "Latest IHSG level"),
+    BotCommand("compare", "Compare companies, e.g. /compare BBCA BBRI"),
+    BotCommand("movers", "Top gainers/losers, e.g. /movers 7d"),
+    BotCommand("active", "Most traded stocks by volume, e.g. /active 10"),
+    BotCommand("stock", "One stock's summary card, e.g. /stock BBCA"),
+    BotCommand("sector", "IDX sub-sector summary, e.g. /sector banks"),
     BotCommand("ask", "Ask about markets or a company"),
     BotCommand("reset", "Clear conversation memory"),
     BotCommand("start", "Subscribe / show help"),

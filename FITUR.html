@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Katalog Fitur — Sectors Telegram Bot</title>
+<style>
+  :root {
+    --bg: #0f1115; --panel: #161a21; --panel-2: #1c212a; --border: #2a313d;
+    --text: #e4e7eb; --muted: #9aa4b2; --accent: #4ea3ff; --ok: #7ee787;
+    --warn: #ffb454; --danger: #ff7b72; --purple: #c39bff;
+    --mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; background: var(--bg); color: var(--text); line-height: 1.7; font-size: 16px;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  }
+  .wrap { max-width: 1080px; margin: 0 auto; padding: 48px 24px 120px; }
+  header.hero { border-bottom: 1px solid var(--border); padding-bottom: 28px; margin-bottom: 32px; }
+  h1 { font-size: 2.05rem; margin: 0 0 8px; letter-spacing: -0.02em; }
+  .sub { color: var(--muted); font-size: 1.05rem; margin: 0; }
+  h2 {
+    font-size: 1.45rem; margin: 56px 0 14px; border-top: 1px solid var(--border);
+    padding-top: 32px; letter-spacing: -0.01em;
+  }
+  h2:first-of-type { border-top: none; padding-top: 0; margin-top: 36px; }
+  h3 { font-size: 1.08rem; margin: 30px 0 10px; color: var(--accent); }
+  h4 { font-size: 0.97rem; margin: 22px 0 8px; color: var(--purple); }
+  p { margin: 0 0 14px; }
+  a { color: var(--accent); }
+  code {
+    font-family: var(--mono); font-size: 0.86em; background: var(--panel-2);
+    border: 1px solid var(--border); border-radius: 5px; padding: 1px 6px;
+  }
+  pre {
+    background: var(--panel); border: 1px solid var(--border); border-radius: 10px;
+    padding: 15px 17px; overflow-x: auto; font-family: var(--mono);
+    font-size: 0.85rem; line-height: 1.6;
+  }
+  pre code { background: none; border: none; padding: 0; font-size: inherit; }
+  .cmt { color: var(--muted); }
+  table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 0.9rem; }
+  th, td { text-align: left; padding: 9px 12px; border-bottom: 1px solid var(--border); vertical-align: top; }
+  th { color: var(--muted); font-weight: 600; font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.05em; }
+  .card { background: var(--panel); border: 1px solid var(--border); border-radius: 12px; padding: 16px 20px; margin: 16px 0; }
+  .ok-c { border-left: 3px solid var(--ok); }
+  .note-c { border-left: 3px solid var(--accent); }
+  .warn-c { border-left: 3px solid var(--warn); }
+  .danger-c { border-left: 3px solid var(--danger); }
+  .card-title { font-weight: 600; margin: 0 0 6px; }
+  ul, ol { margin: 0 0 14px; padding-left: 22px; }
+  li { margin-bottom: 5px; }
+  .pill {
+    display: inline-block; font-family: var(--mono); font-size: 0.72rem;
+    padding: 2px 9px; border-radius: 999px; border: 1px solid var(--border);
+    background: var(--panel-2); color: var(--muted); white-space: nowrap;
+  }
+  .pill.ok { color: var(--ok); border-color: #2f6b40; }
+  .pill.no { color: var(--danger); border-color: #7a3a36; }
+  .pill.idx { color: var(--accent); border-color: #2b5680; }
+  .try {
+    background: var(--panel-2); border: 1px solid var(--border); border-left: 3px solid var(--ok);
+    border-radius: 8px; padding: 12px 16px; margin: 10px 0; font-family: var(--mono); font-size: 0.86rem;
+  }
+  .try .lbl { display: block; font-family: -apple-system, system-ui, sans-serif; font-size: 0.74rem;
+    text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); margin-bottom: 5px; }
+  .toc { background: var(--panel); border: 1px solid var(--border); border-radius: 12px; padding: 16px 24px; }
+  .toc ol { margin: 0; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 14px; }
+  footer { margin-top: 68px; padding-top: 22px; border-top: 1px solid var(--border); color: var(--muted); font-size: 0.86rem; }
+  .vstamp { font-family: var(--mono); font-size: 0.8rem; color: var(--ok); }
+  .out { color: var(--muted); font-style: italic; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="hero">
+  <h1>Katalog Fitur</h1>
+  <p class="sub">Semua yang bisa kamu coba di bot <strong>@wakanomic_bot</strong> — diuji langsung terhadap API, bukan disalin dari dokumentasi.</p>
+</header>
+
+<div class="card ok-c">
+  <p class="card-title">Status verifikasi</p>
+  <p style="margin:0 0 8px">Diuji pada <span class="vstamp">3 Oktober 2026, 11:32 WIB</span>. Semua <strong>15 endpoint Sectors</strong> merespons 200 OK, autentikasi Groq lolos dengan 11 model tersedia, dan model <code>qwen/qwen3.8-27b</code> yang dipakai config benar-benar ada di akunmu.</p>
+  <p style="margin:0">Jalur agent juga sudah dibuktikan utuh: Market Agent memanggil <code>get_index</code> → tool <code>change</code> → menjawab dengan angka yang benar dalam 5 detik. Jadi setiap fitur di halaman ini punya data hidup di belakangnya.</p>
+</div>
+
+<div class="toc">
+  <strong>Isi</strong>
+  <ol>
+    <li><a href="#cmd">Perintah langsung di Telegram</a></li>
+    <li><a href="#ask">Tanya-jawab: tiga spesialis dan contoh pertanyaannya</a></li>
+    <li><a href="#guardrail">Menguji guardrail (fitur yang bekerja dengan menolak)</a></li>
+    <li><a href="#data">Data yang tersedia</a></li>
+    <li><a href="#tools">Sebelas tool dan siapa yang memegangnya</a></li>
+    <li><a href="#lab">Lab: uji agent tanpa Telegram</a></li>
+    <li><a href="#batas">Batasan nyata yang perlu kamu tahu</a></li>
+    <li><a href="#ide">Fitur yang belum ada tapi datanya sudah siap</a></li>
+  </ol>
+</div>
+
+<h2 id="cmd">1. Perintah langsung di Telegram</h2>
+
+<p>Sepuluh perintah, diurutkan dari yang paling ringan. Mulai dari atas kalau kamu ingin memastikan tiap lapisan sehat sebelum membebani yang berat.</p>
+
+<table>
+  <tr>
+    <th style="width:17%">Perintah</th>
+    <th style="width:11%">Pakai LLM?</th>
+    <th style="width:11%">Perkiraan</th>
+    <th>Apa yang terjadi di belakang</th>
+  </tr>
+  <tr>
+    <td><code>/start</code></td>
+    <td><span class="pill no">tidak</span></td>
+    <td>instan</td>
+    <td>Menyimpan chat ID kamu ke tabel <code>subscribers</code> di SQLite, lalu menampilkan bantuan. Memanggil lagi akan memberi tahu kamu sudah terdaftar, bukan membuat duplikat.</td>
+  </tr>
+  <tr>
+    <td><code>/whoami</code></td>
+    <td><span class="pill no">tidak</span></td>
+    <td>instan</td>
+    <td>Menampilkan chat ID dan user ID. <strong>Jalankan ini lebih dulu</strong> — nomornya kamu butuhkan untuk mengisi <code>ADMIN_CHAT_IDS</code>.</td>
+  </tr>
+  <tr>
+    <td><code>/status</code></td>
+    <td><span class="pill no">tidak</span></td>
+    <td>instan</td>
+    <td>Status langgananmu. Kalau kamu sudah terdaftar sebagai admin, baris tambahan menampilkan jumlah subscriber aktif.</td>
+  </tr>
+  <tr>
+    <td><code>/ihsg</code></td>
+    <td><span class="pill no">tidak</span></td>
+    <td>&lt; 1 detik</td>
+    <td>Murni kode: ambil <code>/v2/index-daily/ihsg/</code>, hitung selisih dua baris terakhir di Python. Inilah cara tercepat memastikan kunci Sectors sehat tanpa menyentuh Groq sama sekali.</td>
+  </tr>
+  <tr>
+    <td><code>/compare &lt;ticker&gt;</code></td>
+    <td><span class="pill ok">ya</span></td>
+    <td>20–40 detik</td>
+    <td>Dua sampai empat emiten IDX diadu berdampingan. Tiap emiten diriset analisnya sendiri, lalu satu comparator tanpa tool menyusun tabelnya. Ticker divalidasi ke API lebih dulu, jadi salah ketik langsung ditolak.</td>
+  </tr>
+  <tr>
+    <td><code>/ask &lt;tanya&gt;</code></td>
+    <td><span class="pill ok">ya</span></td>
+    <td>5–20 detik</td>
+    <td>Guardrail memeriksa topik → triage memilih satu spesialis → spesialis memanggil tool dan menjawab. Di chat privat kamu bisa mengetik pertanyaan tanpa <code>/ask</code>.</td>
+  </tr>
+  <tr>
+    <td><code>/reset</code></td>
+    <td><span class="pill no">tidak</span></td>
+    <td>instan</td>
+    <td>Menghapus memori percakapan chat ini dari <code>SQLiteSession</code>. Berguna saat agent "terjebak" konteks lama.</td>
+  </tr>
+  <tr>
+    <td><code>/report</code></td>
+    <td><span class="pill ok">ya</span></td>
+    <td>30–90 detik</td>
+    <td>Pipeline terberat: para analis → editor → kritikus, dengan sampai 2 putaran revisi. Lihat catatan free tier di bagian 7.</td>
+  </tr>
+  <tr>
+    <td><code>/testjob</code></td>
+    <td><span class="pill ok">ya</span></td>
+    <td>~10 detik tunda</td>
+    <td><em>Admin saja.</em> Menjalankan job pagi terjadwal dalam 10 detik dan mengirim hanya ke kamu — cara menguji jalur broadcast tanpa menunggu jam 07:30.</td>
+  </tr>
+  <tr>
+    <td><code>/stop</code></td>
+    <td><span class="pill no">tidak</span></td>
+    <td>instan</td>
+    <td>Menghapus chat kamu dari daftar subscriber.</td>
+  </tr>
+</table>
+
+<div class="card note-c">
+  <p class="card-title">Membuka <code>/testjob</code></p>
+  <p style="margin:0"><code>ADMIN_CHAT_IDS</code> di <code>.env</code> masih kosong, jadi <code>/testjob</code> akan menjawab "Admin only." Kirim <code>/whoami</code>, salin <strong>user ID</strong>-nya ke <code>ADMIN_CHAT_IDS=</code>, lalu restart bot.</p>
+</div>
+
+<h2 id="ask">2. Tanya-jawab: tiga spesialis</h2>
+
+<p>Kamu tidak memilih spesialis secara manual. Agent <strong>Triage</strong> membaca pertanyaanmu dan menyerahkan kendali ke salah satu dari tiga agent di bawah. Memahami pembagian ini membantumu menyusun pertanyaan yang pasti mengenai sasaran.</p>
+
+<h3>Market Agent — pasar secara keseluruhan</h3>
+<p>Memegang tujuh tool: indeks, total market cap, harga harian, foreign flow, screener, berita, dan kalkulator <code>change</code>. Inilah tujuan default kalau triage ragu.</p>
+
+<div class="try"><span class="lbl">Coba kirim</span>how is IHSG this week?</div>
+<p class="out">Terverifikasi — jawaban nyata yang saya dapat: IHSG ditutup 6.036,89 pada 2 Okt 2026, naik 0,46% harian tapi turun sekitar 4,16% dalam sepekan dari 6.298,61.</p>
+
+<div class="try"><span class="lbl">Variasi lain</span>compare IHSG and LQ45 over the last week
+what is the total IDX market capitalisation?
+which IDX stocks saw the strongest foreign buying lately?
+show me the biggest banks on IDX by market cap
+any market-moving IDX news today?</div>
+
+<h3>IDX Company Agent — satu emiten Indonesia</h3>
+<p>Dipilih ketika kamu menyebut <strong>satu</strong> ticker IDX (4 huruf) atau nama satu perusahaan. Punya akses ke laporan perusahaan, harga harian, dan filings.</p>
+
+<div class="try"><span class="lbl">Coba kirim</span>tell me about BBCA
+how did BBRI revenue grow year on year?
+what is BMRI's dividend history?
+has there been insider buying in TLKM recently?
+what is ASII's valuation?</div>
+
+<p>Bagian laporan yang tersedia khusus IDX cukup kaya: <code>overview</code>, <code>financials</code>, <code>dividend</code>, <code>valuation</code>, <code>peers</code>, <code>future</code>, <code>management</code>, dan <code>ownership</code>. Minta pembanding sejawat atau struktur kepemilikan akan berhasil di sini.</p>
+
+<div class="try"><span class="lbl">Khusus IDX</span>who are BBCA's closest peers?
+who owns the largest stake in BRPT?</div>
+
+<h3>Research Agent — sekelompok perusahaan sekaligus</h3>
+<p>Fitur paling mengesankan di bot ini. Ia menyaring perusahaan yang cocok dengan deskripsimu (maksimal 5), meriset tiap perusahaan <strong>secara paralel</strong>, lalu merangkum semuanya menjadi satu laporan dengan watchlist. Jawabannya datang dalam format yang sama seperti laporan pagi.</p>
+
+<div class="try"><span class="lbl">Coba kirim</span>how are Prajogo Pangestu's companies doing?
+give me an outlook on the big Indonesian banks
+how are the nickel miners performing?
+research the largest IDX telco companies
+what's happening with Indonesian cement companies?</div>
+
+<p>Kata kuncinya adalah menyebut sebuah <em>kelompok</em> — pemilik, tema, sektor, atau ukuran. File <code>3_research_notes.txt</code> di proyekmu adalah contoh keluaran fitur ini untuk lima bank terbesar.</p>
+
+<h2 id="guardrail">3. Menguji guardrail</h2>
+
+<p>Ini fitur yang bekerja dengan cara <em>menolak</em>, dan layak kamu coba sengaja supaya kamu melihat sendiri bahwa pembatasnya nyata. Sebuah agent kecil mengklasifikasi tiap pesan sebelum triage berjalan, dan memicu penolakan kalau pesanmu di luar topik <strong>atau</strong> meminta saran investasi personal.</p>
+
+<div class="try"><span class="lbl">Harus ditolak — minta saran personal</span>what should I buy right now?
+should I sell my BBCA shares?
+give me a price target for BBRI
+is now a good time to invest?</div>
+
+<div class="try"><span class="lbl">Harus ditolak — di luar topik</span>what's a good recipe for nasi goreng?
+write me a poem about the moon</div>
+
+<p class="out">Balasan yang diharapkan: "I can only help with Indonesian (IDX) market and company data. I can't tell you what to personally buy, sell, or hold."</p>
+
+<p>Perhatikan bedanya dengan pertanyaan deskriptif, yang <strong>lolos</strong> karena hanya meminta fakta dan bukan nasihat:</p>
+
+<div class="try"><span class="lbl">Ini lolos</span>which IDX bank has the highest dividend yield?
+which stocks fell the most this week?</div>
+
+<h2 id="data">4. Data yang tersedia</h2>
+
+<p>Sembilan endpoint IDX, semuanya saya uji ulang setelah SGX dicabut dan semuanya merespons.</p>
+
+<table>
+  <tr>
+    <th style="width:30%">Jenis data</th>
+    <th style="width:12%">Status</th>
+    <th>Catatan hasil uji</th>
+  </tr>
+  <tr>
+    <td>Harga &amp; volume harian</td>
+    <td><span class="pill ok">OK</span></td>
+    <td>22 baris riwayat per simbol, berisi <code>close, open, high, low</code>.</td>
+  </tr>
+  <tr>
+    <td>Level indeks</td>
+    <td><span class="pill ok">OK</span></td>
+    <td>IHSG dan LQ45, masing-masing 22 baris.</td>
+  </tr>
+  <tr>
+    <td>Total kapitalisasi pasar</td>
+    <td><span class="pill ok">OK</span></td>
+    <td>Sudah diskalakan ke triliun rupiah oleh tool, jadi model tidak bisa salah hitung nol.</td>
+  </tr>
+  <tr>
+    <td>Aliran dana asing</td>
+    <td><span class="pill ok">OK</span></td>
+    <td>Per saham. Nilai positif berarti asing membeli bersih.</td>
+  </tr>
+  <tr>
+    <td>Laporan perusahaan</td>
+    <td><span class="pill ok">8 bagian</span></td>
+    <td><code>overview, financials, dividend, valuation, peers, future, management, ownership</code>.</td>
+  </tr>
+  <tr>
+    <td>Snapshot perusahaan</td>
+    <td><span class="pill ok">OK</span></td>
+    <td>Versi ringkas laporan di atas, hanya nilai skalar. 97% lebih kecil, dipakai oleh <code>/compare</code>.</td>
+  </tr>
+  <tr>
+    <td>Laporan sub-sektor</td>
+    <td><span class="pill ok">OK</span></td>
+    <td>Hidup di API, <strong>tapi belum terhubung ke agent mana pun</strong> — lihat bagian 8.</td>
+  </tr>
+  <tr>
+    <td>Screener perusahaan</td>
+    <td><span class="pill ok">OK</span></td>
+    <td>Menerima bahasa alami lewat <code>q</code>; respons bahkan menyertakan <code>llm_translation</code> yang memperlihatkan cara API menafsirkan kalimatmu.</td>
+  </tr>
+  <tr>
+    <td>Berita</td>
+    <td><span class="pill ok">OK</span></td>
+    <td>Hanya judul, tanggal, sumber, dan ticker — bukan isi artikel.</td>
+  </tr>
+  <tr>
+    <td>Filings insider</td>
+    <td><span class="pill ok">OK</span></td>
+    <td>Termasuk jenis transaksi, nama pemegang, dan persentase saham.</td>
+  </tr>
+</table>
+
+<h2 id="tools">5. Sebelas tool dan siapa yang memegangnya</h2>
+
+<p>Agent hanya bisa melakukan apa yang tool-nya izinkan. Tabel ini adalah peta kemampuan sesungguhnya — kalau sebuah tool tidak dipegang siapa pun, fiturnya tidak terjangkau dari Telegram meski kodenya ada.</p>
+
+<table>
+  <tr>
+    <th style="width:24%">Tool</th>
+    <th style="width:40%">Fungsinya</th>
+    <th>Dipegang oleh</th>
+  </tr>
+  <tr><td><code>get_index</code></td><td>Level IHSG atau LQ45 harian</td><td>Market Agent, Index Analyst</td></tr>
+  <tr><td><code>get_idx_total</code></td><td>Total market cap IDX, dalam triliun</td><td>Market Agent, Index Analyst</td></tr>
+  <tr><td><code>get_daily</code></td><td>Harga &amp; volume harian satu simbol</td><td>Market, IDX Company, Movers Analyst, Company Researcher, Comparison Analyst</td></tr>
+  <tr><td><code>get_foreign_flow</code></td><td>Aliran dana asing bersih per saham</td><td>Market Agent, Flow Analyst</td></tr>
+  <tr><td><code>get_company_report</code></td><td>Laporan perusahaan per bagian</td><td>IDX Company, Company Researcher</td></tr>
+  <tr><td><code>get_company_snapshot</code></td><td>Versi ringkas, skalar saja</td><td>Comparison Analyst</td></tr>
+  <tr><td><code>screen_companies</code></td><td>Menyaring emiten, bisa bahasa alami</td><td>Market Agent, Movers Analyst, Flow Analyst, Screener</td></tr>
+  <tr><td><code>get_news</code></td><td>Judul berita terbaru</td><td>Market Agent, News Analyst</td></tr>
+  <tr><td><code>get_filings</code></td><td>Filings insider &amp; kepemilikan</td><td>IDX Company, News Analyst</td></tr>
+  <tr><td><code>change</code></td><td>Menghitung selisih &amp; persentase</td><td>Hampir semua agent</td></tr>
+  <tr>
+    <td><code>get_subsector_report</code></td>
+    <td>Laporan satu sub-sektor IDX</td>
+    <td><span class="pill no">tidak ada seorang pun</span></td>
+  </tr>
+</table>
+
+<div class="card note-c">
+  <p class="card-title">Mengapa <code>change</code> itu penting</p>
+  <p style="margin:0">Model bahasa buruk dalam aritmetika angka besar. Jadi setiap persentase di bot ini dihitung oleh kode Python di dalam tool <code>change</code>, bukan oleh LLM — aturan di <code>rules.py</code> bahkan secara eksplisit melarang agent menghitung sendiri. Di log uji tadi kamu bisa melihat barisnya: <code>app.tools: Calling change tool</code>.</p>
+</div>
+
+<h2 id="lab">6. Lab: uji agent tanpa Telegram</h2>
+
+<p>Memutar seluruh bot hanya untuk mencoba satu agent itu lambat. <code>scripts/try_agent.py</code> menjalankan satu bagian saja dan mencetak setiap pemanggilan tool beserta status HTTP-nya — jauh lebih enak untuk belajar atau men-debug.</p>
+
+<pre><code><span class="cmt"># satu agent Q&amp;A, keluaran teks bebas</span>
+uv run python scripts/try_agent.py market "how is IHSG this week?"
+uv run python scripts/try_agent.py idx_company "tell me about BBCA"
+
+<span class="cmt"># satu analis laporan (fetcher + formatter -> objek Section JSON)</span>
+uv run python scripts/try_agent.py index
+uv run python scripts/try_agent.py movers
+uv run python scripts/try_agent.py flow
+uv run python scripts/try_agent.py news
+
+<span class="cmt"># pipeline utuh</span>
+uv run python scripts/try_agent.py report
+uv run python scripts/try_agent.py research "the big Indonesian banks"
+uv run python scripts/try_agent.py compare "BBCA BBRI"
+uv run python scripts/try_agent.py ask "what should I buy?"   <span class="cmt"># lewat guardrail</span>
+
+<span class="cmt"># lihat daftar nama yang tersedia</span>
+uv run python scripts/try_agent.py</code></pre>
+
+<p>Empat nama analis (<code>index</code>, <code>movers</code>, <code>flow</code>, <code>news</code>) sangat berguna: masing-masing mencetak objek <code>Section</code> dalam JSON, jadi kamu bisa melihat persis struktur yang nanti diterima editor. Ada juga <code>scratch.py</code> di root sebagai scratch pad sekali pakai untuk eksperimen bebas.</p>
+
+<h2 id="batas">7. Batasan nyata yang perlu kamu tahu</h2>
+
+<div class="card warn-c">
+  <p class="card-title">Laporan pagi kamu saat ini hanya punya dua bagian</p>
+  <p style="margin:0 0 8px">Karena <code>IS_PAID=false</code> (tepat untuk Groq free tier), <code>/report</code> hanya menjalankan <strong>Index Analyst</strong> dan <strong>News Analyst</strong>, berurutan dengan jeda 3 detik agar tidak menembus limit token per menit.</p>
+  <p style="margin:0">Artinya bagian <strong>Movers</strong> dan <strong>Foreign Flow</strong> tidak akan muncul di laporan. Keduanya tetap bisa kamu akses lewat <code>/ask</code> ke Market Agent, atau langsung lewat <code>try_agent.py movers</code> dan <code>flow</code>.</p>
+</div>
+
+<div class="card note-c">
+  <p class="card-title">Hanya IDX</p>
+  <p style="margin:0">Dukungan SGX sudah dicabut seluruhnya dari kode: endpoint, agent, dan parameter <code>market</code> di setiap tool. Pertanyaan atau ticker Singapura (<code>D05</code>, <code>U11</code>) kini ditolak lebih awal oleh kode, bukan gagal di tengah jalan.</p>
+</div>
+
+<div class="card warn-c">
+  <p class="card-title">Laporan sub-sektor belum terjangkau</p>
+  <p style="margin:0">Saya sudah memastikan <code>/v2/subsector/report/banks/</code> mengembalikan data lengkap (berisi <code>companies</code>, <code>growth</code>, <code>valuation</code>), dan tool-nya sudah ditulis di <code>app/tools.py:158</code>. Tapi tool itu tidak dimasukkan ke daftar <code>tools=[...]</code> agent mana pun, jadi tidak ada yang bisa memanggilnya. Pertanyaan seperti "how is the banking sub-sector doing?" akan dijawab dengan cara lain yang lebih berputar.</p>
+</div>
+
+<p>Dua hal lain yang wajar terjadi dan bukan kerusakan. Log yang menampilkan <code>attempt 1/3 failed</code> lalu berhasil itu normal — model kadang mengeluarkan JSON rusak dan <code>run_structured</code> memang dirancang mengulang. Lalu satu analis yang gagal tidak menjatuhkan laporan; sistem sengaja menerbitkan apa yang tersisa, dan baru benar-benar gagal kalau semua analis tumbang.</p>
+
+<p>Terakhir, teks bebas tanpa perintah hanya diproses di <strong>chat privat</strong>. Di grup, bot sengaja diam kecuali kamu memakai <code>/ask</code>.</p>
+
+<h2 id="ide">8. Fitur yang belum ada tapi datanya sudah siap</h2>
+
+<p>Ini bukan daftar keinginan kosong — setiap butir di bawah bersandar pada endpoint yang sudah saya buktikan hidup, jadi tinggal dirangkai.</p>
+
+<table>
+  <tr><th style="width:30%">Ide</th><th style="width:26%">Bersandar pada</th><th>Kenapa mudah</th></tr>
+  <tr>
+    <td>Hubungkan laporan sub-sektor</td>
+    <td><code>get_subsector_report</code></td>
+    <td>Perubahan satu baris: tambahkan tool itu ke <code>tools=[...]</code> milik Market Agent. Latihan pertama yang sempurna untuk memahami bagaimana tool sampai ke agent.</td>
+  </tr>
+  <tr>
+    <td>Perintah <code>/lq45</code></td>
+    <td>Endpoint LQ45 <span class="pill ok">teruji</span></td>
+    <td>Tiru saja handler <code>ihsg</code> di <code>app/handlers.py:70</code> dan ganti kode indeksnya. Tanpa LLM, jadi cepat dan gratis.</td>
+  </tr>
+  <tr>
+    <td>Analis sub-sektor untuk laporan pagi</td>
+    <td><code>get_subsector_report</code></td>
+    <td>Buat <em>fetcher</em> kelima mengikuti pola di <code>specialists.py</code>, lalu masukkan ke daftar <code>SPECIALISTS</code>. Formatter-nya sudah bisa dipakai ulang apa adanya.</td>
+  </tr>
+  <tr>
+    <td>Watchlist pribadi</td>
+    <td>SQLite yang sudah ada</td>
+    <td><code>store.py</code> sudah punya pola tabel dan koneksi. Tambahkan satu tabel dan dua perintah.</td>
+  </tr>
+  <tr>
+    <td>Peringatan insider trading</td>
+    <td><code>get_filings</code> <span class="pill ok">teruji</span></td>
+    <td>Job terjadwal sudah ada di <code>jobs.py</code> — tambahkan job kedua yang memeriksa filings baru.</td>
+  </tr>
+  <tr>
+    <td>Tes untuk <code>render.py</code></td>
+    <td>Tidak perlu API</td>
+    <td>Repo ini belum punya satu tes pun, padahal <code>render_report</code> dan <code>change</code> adalah fungsi murni. Kasus pemotongan pesan 4096 karakter khususnya layak diuji.</td>
+  </tr>
+</table>
+
+<footer>
+  <p>Disusun dari pembacaan kode di <code>/Users/wirajaya/Documents/project/sectors-telegram</code> dan pengujian langsung terhadap Sectors API serta Groq pada 3 Oktober 2026. Untuk pemahaman arsitektur dan cara menjalankan, lihat <code>PANDUAN.html</code>.</p>
+</footer>
+
+</div>
+</body>
+</html>

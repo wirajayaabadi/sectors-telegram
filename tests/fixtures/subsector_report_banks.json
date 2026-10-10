@@ -1,0 +1,272 @@
+{
+ "sector": "Financials",
+ "sub_sector": "Banks",
+ "companies": {
+  "top_companies": {
+   "top_mcap": {
+    "BBCA.JK": {
+     "name": "PT Bank Central Asia Tbk.",
+     "market_cap": 738355911975000
+    },
+    "BBNI.JK": {
+     "name": "PT Bank Negara Indonesia (Persero) Tbk",
+     "market_cap": 127019728863840
+    },
+    "BBRI.JK": {
+     "name": "PT Bank Rakyat Indonesia (Persero) Tbk",
+     "market_cap": 471136312383180
+    },
+    "BMRI.JK": {
+     "name": "PT Bank Mandiri (Persero) Tbk",
+     "market_cap": 378839999983600
+    },
+    "BNLI.JK": {
+     "name": "Bank Permata Tbk",
+     "market_cap": 69489919094500
+    }
+   },
+   "top_growth": {
+    "BBKP.JK": {
+     "name": "PT Bank KB Indonesia Tbk",
+     "revenue_growth": 0.589501041428457
+    },
+    "BBSI.JK": {
+     "name": "PT Krom Bank Indonesia Tbk",
+     "revenue_growth": 0.772681088530331
+    },
+    "BDMN.JK": {
+     "name": "PT Bank Danamon Indonesia Tbk",
+     "revenue_growth": 0.484270538378971
+    },
+    "BKSW.JK": {
+     "name": "PT Bank QNB Indonesia Tbk",
+     "revenue_growth": 0.447987475796152
+    },
+    "BMAS.JK": {
+     "name": "PT Bank Maspion Indonesia Tbk.",
+     "revenue_growth": 1.27220566531614
+    }
+   },
+   "top_profit": {
+    "BBCA.JK": {
+     "name": "PT Bank Central Asia Tbk.",
+     "profit_ttm": 58116171000000
+    },
+    "BBNI.JK": {
+     "name": "PT Bank Negara Indonesia (Persero) Tbk",
+     "profit_ttm": 20806688000000
+    },
+    "BBRI.JK": {
+     "name": "PT Bank Rakyat Indonesia (Persero) Tbk",
+     "profit_ttm": 62322523000000
+    },
+    "BMRI.JK": {
+     "name": "PT Bank Mandiri (Persero) Tbk",
+     "profit_ttm": 69994475000000
+    },
+    "BRIS.JK": {
+     "name": "PT Bank Syariah Indonesia Tbk",
+     "profit_ttm": 7982004000000
+    }
+   },
+   "top_revenue": {
+    "BBCA.JK": {
+     "name": "PT Bank Central Asia Tbk.",
+     "revenue_ttm": 114261840000000
+    },
+    "BBNI.JK": {
+     "name": "PT Bank Negara Indonesia (Persero) Tbk",
+     "revenue_ttm": 65242781000000
+    },
+    "BBRI.JK": {
+     "name": "PT Bank Rakyat Indonesia (Persero) Tbk",
+     "revenue_ttm": 212474120000000
+    },
+    "BMRI.JK": {
+     "name": "PT Bank Mandiri (Persero) Tbk",
+     "revenue_ttm": 152237243000000
+    },
+    "BRIS.JK": {
+     "name": "PT Bank Syariah Indonesia Tbk",
+     "revenue_ttm": 27377239000000
+    }
+   }
+  },
+  "top_change_companies": {
+   "BBMD.JK": {
+    "pe": 27.4467825656619,
+    "1yr": -0.0422535211267606,
+    "1mth": 0.0461538461538462,
+    "name": "PT Bank Mestika Dharma Tbk.",
+    "last_close": 2040
+   },
+   "BDMN.JK": {
+    "pe": 8.48841498246944,
+    "1yr": 1.08860759493671,
+    "1mth": 0.125,
+    "name": "PT Bank Danamon Indonesia Tbk",
+    "last_close": 4950
+   },
+   "BEKS.JK": {
+    "pe": 27.3535514291548,
+    "1yr": 0.285714285714286,
+    "1mth": 0.565217391304348,
+    "name": "PT Bank Pembangunan Daerah Banten Tbk.",
+    "last_close": 36
+   },
+   "BSWD.JK": {
+    "pe": 188.645616563471,
+    "1yr": 1.73764258555133,
+    "1mth": 1.4,
+    "name": "Bank of India Indonesia Tbk",
+    "last_close": 3600
+   },
+   "BTPN.JK": {
+    "pe": -26.2337783470227,
+    "1yr": 0.188679245283019,
+    "1mth": 0.045643153526971,
+    "name": "PT Bank SMBC Indonesia Tbk",
+    "last_close": 2520
+   }
+  }
+ },
+ "growth": {
+  "weighted_avg_growth_data": {
+   "2018": {
+    "avg_annual_earning_growth": null,
+    "avg_annual_revenue_growth": null
+   },
+   "2019": {
+    "avg_annual_earning_growth": 0.0841994718363998,
+    "avg_annual_revenue_growth": 0.0862877412749321
+   },
+   "2020": {
+    "avg_annual_earning_growth": -0.125310698760323,
+    "avg_annual_revenue_growth": 0.44816505269528
+   },
+   "2021": {
+    "avg_annual_earning_growth": -4.15379500209065,
+    "avg_annual_revenue_growth": 0.177604535362449
+   },
+   "2022": {
+    "avg_annual_earning_growth": 0.405240992617949,
+    "avg_annual_revenue_growth": 0.371032049628966
+   },
+   "2023": {
+    "avg_annual_earning_growth": 0.226958444810999,
+    "avg_annual_revenue_growth": 0.130803356219195
+   },
+   "2024": {
+    "avg_annual_earning_growth": 0.0700176581397266,
+    "avg_annual_revenue_growth": 0.366609527012688
+   },
+   "2025": {
+    "avg_annual_earning_growth": -0.193382834489724,
+    "avg_annual_revenue_growth": 0.0166613690579957
+   }
+  },
+  "growth_forecasts": {
+   "2026": {
+    "base_year": 2025,
+    "eps_growth": 0.165022615504832,
+    "revenue_growth": 0.199659414083504
+   },
+   "2027": {
+    "base_year": 2025,
+    "eps_growth": 0.252648584007314,
+    "revenue_growth": 0.288158070598275
+   }
+  }
+ },
+ "market_cap": {
+  "total_market_cap": 2310122086346829.0,
+  "avg_market_cap": 48127543465558.94,
+  "quarterly_market_cap": {
+   "prev_ttm_mcap": {
+    "2024.Q4": 3127779808736190,
+    "2025.Q1": 2920729472077129,
+    "2025.Q2": 2894282900181794,
+    "2025.Q3": 2888396179351048
+   },
+   "current_ttm_mcap": {
+    "2025.Q4": 2967395075922848,
+    "2026.Q1": 2546937649790620,
+    "2026.Q2": 2159261346185052,
+    "2026.Q3": 2294572919088966
+   },
+   "current_ttm_mcap_pavg": {
+    "2025.Q4": 402428987201133.1,
+    "2026.Q1": 308490581440144.6,
+    "2026.Q2": 241711460429060.4,
+    "2026.Q3": 262410836877515.78
+   }
+  },
+  "mcap_summary": {
+   "mcap_change": {
+    "1w": 0.0009712718979788107,
+    "1y": -0.2341076529019749,
+    "ytd": -0.22015780011704905
+   },
+   "monthly_performance": {
+    "2025-11-28": -0.0299728597239179,
+    "2025-12-30": 0.012458222747499925,
+    "2026-01-30": -0.03684210891929122,
+    "2026-02-27": 0.01490815360382527,
+    "2026-03-31": -0.12195108015055146,
+    "2026-04-30": -0.06760289440691204,
+    "2026-05-29": -0.01951073435349081,
+    "2026-06-30": -0.07265115178117373,
+    "2026-07-31": 0.09692623787842058,
+    "2026-08-31": 0.027082326759486144,
+    "2026-09-30": -0.056777890269070555,
+    "2026-10-06": 0.00851007378239998
+   },
+   "performance_quantile": 0.303030303030303
+  }
+ },
+ "statistics": {
+  "total_companies": 48,
+  "filtered_median_pe": 8.96817043608196,
+  "filtered_weighted_avg_pe": 13.3139211311579,
+  "min_company_pe": -74.2741269978157,
+  "max_company_pe": 644.79796396129
+ },
+ "valuation": {
+  "historical_valuation": {
+   "2022": {
+    "pb": 0.975919472508022,
+    "pe": 15.1292552726864,
+    "ps": 4.41860675563346,
+    "pcf": -1.55939100112639
+   },
+   "2023": {
+    "pb": 0.854769761923978,
+    "pe": 16.8856446249576,
+    "ps": 4.03165315770388,
+    "pcf": -0.958154247877684
+   },
+   "2024": {
+    "pb": 0.809474232052149,
+    "pe": 16.1927341107751,
+    "ps": 3.43164746605984,
+    "pcf": 2.33091890859551
+   },
+   "2025": {
+    "pb": 0.852068326449239,
+    "pe": 14.6874841154653,
+    "ps": 3.86931355910018,
+    "pcf": 2.76312177274512
+   },
+   "2026": {
+    "pb": 0.815384920713984,
+    "pe": 8.96817043608196,
+    "ps": 2.44986711810434,
+    "pcf": 2.34565148110207,
+    "pb_rank": 2,
+    "pe_rank": 17,
+    "ps_rank": 25,
+    "pcf_rank": 8
+   }
+  }
+ }
+}

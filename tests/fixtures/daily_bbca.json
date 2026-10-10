@@ -1,0 +1,222 @@
+[
+ {
+  "symbol": "BBCA.JK",
+  "date": "2026-09-08",
+  "close": 6675,
+  "open": 6600,
+  "high": 6775,
+  "low": 6575,
+  "volume": 108127600,
+  "market_cap": 814632349162500
+ },
+ {
+  "symbol": "BBCA.JK",
+  "date": "2026-09-09",
+  "close": 6525,
+  "open": 6700,
+  "high": 6700,
+  "low": 6500,
+  "volume": 193375100,
+  "market_cap": 796326004237500
+ },
+ {
+  "symbol": "BBCA.JK",
+  "date": "2026-09-10",
+  "close": 6425,
+  "open": 6575,
+  "high": 6600,
+  "low": 6425,
+  "volume": 196819200,
+  "market_cap": 784121774287500
+ },
+ {
+  "symbol": "BBCA.JK",
+  "date": "2026-09-11",
+  "close": 6325,
+  "open": 6400,
+  "high": 6400,
+  "low": 6250,
+  "volume": 187922700,
+  "market_cap": 771917544337500
+ },
+ {
+  "symbol": "BBCA.JK",
+  "date": "2026-09-14",
+  "close": 6500,
+  "open": 6325,
+  "high": 6575,
+  "low": 6275,
+  "volume": 218017200,
+  "market_cap": 793274946750000
+ },
+ {
+  "symbol": "BBCA.JK",
+  "date": "2026-09-15",
+  "close": 6400,
+  "open": 6500,
+  "high": 6500,
+  "low": 6350,
+  "volume": 95608200,
+  "market_cap": 781070716800000
+ },
+ {
+  "symbol": "BBCA.JK",
+  "date": "2026-09-16",
+  "close": 6325,
+  "open": 6350,
+  "high": 6425,
+  "low": 6325,
+  "volume": 72157400,
+  "market_cap": 771917544337500
+ },
+ {
+  "symbol": "BBCA.JK",
+  "date": "2026-09-17",
+  "close": 6350,
+  "open": 6400,
+  "high": 6400,
+  "low": 6325,
+  "volume": 61812000,
+  "market_cap": 774968601825000
+ },
+ {
+  "symbol": "BBCA.JK",
+  "date": "2026-09-18",
+  "close": 6300,
+  "open": 6325,
+  "high": 6350,
+  "low": 6225,
+  "volume": 176753700,
+  "market_cap": 768866486850000
+ },
+ {
+  "symbol": "BBCA.JK",
+  "date": "2026-09-21",
+  "close": 6225,
+  "open": 6300,
+  "high": 6300,
+  "low": 6225,
+  "volume": 69914100,
+  "market_cap": 759713314387500
+ },
+ {
+  "symbol": "BBCA.JK",
+  "date": "2026-09-22",
+  "close": 6200,
+  "open": 6225,
+  "high": 6250,
+  "low": 6175,
+  "volume": 93211200,
+  "market_cap": 756662256900000
+ },
+ {
+  "symbol": "BBCA.JK",
+  "date": "2026-09-23",
+  "close": 6300,
+  "open": 6200,
+  "high": 6300,
+  "low": 6200,
+  "volume": 96826100,
+  "market_cap": 768866486850000
+ },
+ {
+  "symbol": "BBCA.JK",
+  "date": "2026-09-24",
+  "close": 6225,
+  "open": 6250,
+  "high": 6275,
+  "low": 6225,
+  "volume": 75648600,
+  "market_cap": 759713314387500
+ },
+ {
+  "symbol": "BBCA.JK",
+  "date": "2026-09-25",
+  "close": 6250,
+  "open": 6225,
+  "high": 6275,
+  "low": 6200,
+  "volume": 89447400,
+  "market_cap": 762764371875000
+ },
+ {
+  "symbol": "BBCA.JK",
+  "date": "2026-09-28",
+  "close": 6225,
+  "open": 6225,
+  "high": 6250,
+  "low": 6175,
+  "volume": 112107600,
+  "market_cap": 759713314387500
+ },
+ {
+  "symbol": "BBCA.JK",
+  "date": "2026-09-29",
+  "close": 6150,
+  "open": 6150,
+  "high": 6225,
+  "low": 6125,
+  "volume": 149783400,
+  "market_cap": 750560141925000
+ },
+ {
+  "symbol": "BBCA.JK",
+  "date": "2026-09-30",
+  "close": 6075,
+  "open": 6100,
+  "high": 6150,
+  "low": 6050,
+  "volume": 221335700,
+  "market_cap": 741406969462500
+ },
+ {
+  "symbol": "BBCA.JK",
+  "date": "2026-10-01",
+  "close": 6000,
+  "open": 6050,
+  "high": 6150,
+  "low": 6000,
+  "volume": 118044900,
+  "market_cap": 732253797000000
+ },
+ {
+  "symbol": "BBCA.JK",
+  "date": "2026-10-02",
+  "close": 6100,
+  "open": 6000,
+  "high": 6150,
+  "low": 5975,
+  "volume": 131920300,
+  "market_cap": 744458026950000
+ },
+ {
+  "symbol": "BBCA.JK",
+  "date": "2026-10-05",
+  "close": 6175,
+  "open": 6100,
+  "high": 6175,
+  "low": 6075,
+  "volume": 89905700,
+  "market_cap": 753611199412500
+ },
+ {
+  "symbol": "BBCA.JK",
+  "date": "2026-10-06",
+  "close": 6100,
+  "open": 6175,
+  "high": 6200,
+  "low": 6100,
+  "volume": 152173400,
+  "market_cap": 744458026950000
+ },
+ {
+  "symbol": "BBCA.JK",
+  "date": "2026-10-07",
+  "close": 6050,
+  "open": 6075,
+  "high": 6100,
+  "low": 5975,
+  "volume": 162690800,
+  "market_cap": 738355911975000
+ }
+]

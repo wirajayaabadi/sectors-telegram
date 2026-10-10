@@ -1,6 +1,6 @@
-"""Async client for the Sectors Financial API v2.
+"""Async client for the Sectors Financial API v2, Indonesia (IDX) only.
 
-data = await get_client().get("idx", "index_daily", path_params={"index_code": "ihsg"}, params={...})
+data = await get_client().get("index_daily", path_params={"index_code": "ihsg"}, params={...})
 """
 
 import asyncio
@@ -14,35 +14,30 @@ from app.config import settings
 log = logging.getLogger(__name__)
 
 
-ENDPOINTS: dict[str, dict[str, str]] = {
-    "idx": {
-        "daily": "/v2/daily/{symbol}/",
-        "index_daily": "/v2/index-daily/{index_code}/",
-        "idx_total": "/v2/idx-total/",
-        "foreign_flow": "/v2/foreign-flow/{symbol}/",
-        "company_report": "/v2/company/report/{symbol}/",
-        "subsector_report": "/v2/subsector/report/{sub_sector}/",
-        "companies": "/v2/companies/",
-        "news": "/v2/news/",
-        "filings": "/v2/filings/",
-    },
-    "sgx": {
-        "daily": "/v2/sgx/daily/{symbol}/",
-        "company_report": "/v2/sgx/company/report/{symbol}/",
-        "companies": "/v2/sgx/companies/",
-        "news": "/v2/sgx/news/",
-        "filings": "/v2/sgx/filings/",
-    },
+ENDPOINTS: dict[str, str] = {
+    "daily": "/v2/daily/{symbol}/",
+    "index_daily": "/v2/index-daily/{index_code}/",
+    "idx_total": "/v2/idx-total/",
+    "foreign_flow": "/v2/foreign-flow/{symbol}/",
+    "company_report": "/v2/company/report/{symbol}/",
+    "subsector_report": "/v2/subsector/report/{sub_sector}/",
+    "subsectors": "/v2/subsectors/",
+    "top_changes": "/v2/companies/top-changes/",
+    "most_traded": "/v2/most-traded/",
+    "companies": "/v2/companies/",
+    "news": "/v2/news/",
+    "filings": "/v2/filings/",
 }
 
 RETRY_STATUSES = {429, 500, 502, 503, 504}
 
 
 class SectorsError(Exception):
-    def __init__(self, status: int | None, message: str):
+    def __init__(self, status: int | None, message: str, *, timed_out: bool = False):
         super().__init__(f"[{status}] {message}")
         self.status = status
         self.message = message
+        self.timed_out = timed_out  # no response in time (vs. a refused connection)
 
 
 class SectorsClient:
@@ -59,13 +54,12 @@ class SectorsClient:
 
     async def get(
         self,
-        market: str,
         name: str,
         *,
         path_params: dict[str, str] | None = None,
         params: dict[str, Any] | None = None,
     ) -> Any:
-        path = ENDPOINTS[market][name].format(**(path_params or {}))
+        path = ENDPOINTS[name].format(**(path_params or {}))
         clean = {k: v for k, v in (params or {}).items() if v is not None}
         log.info("sectors GET %s", path)
 
@@ -94,7 +88,10 @@ class SectorsClient:
                 if attempt < 2:
                     await asyncio.sleep(1.5 * (attempt + 1))
                     continue
-                raise SectorsError(None, f"network error: {e}") from e
+                timed_out = isinstance(e, httpx.TimeoutException)
+                raise SectorsError(
+                    None, f"network error: {e!r}", timed_out=timed_out
+                ) from e
 
         raise SectorsError(None, "all retries failed")  # loop fell through
 
